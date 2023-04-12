@@ -39,7 +39,8 @@ namespace Logic.Logic
 
         public void UpdateUser(UserItem userItem)
         {
-            throw new NotImplementedException();
+            _serviceContext.Users.Update(userItem);
+            _serviceContext.SaveChanges();
         }
         public void DeactivateUser(int id)
         {

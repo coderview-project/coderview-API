@@ -81,9 +81,9 @@ namespace coderview_API.Controllers
                 userItem.IdPhotoFile = fileId;
                 _userService.UpdateUser(userItem);
             }
-            catch (Exception)
+            catch
             {
-                throw;
+                throw new Exception("No se ha podido registrar los cambios."); 
             }
         }
 

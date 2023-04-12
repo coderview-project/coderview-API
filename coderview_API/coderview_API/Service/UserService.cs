@@ -1,4 +1,5 @@
 ﻿using coderview_API.IService;
+using coderview_API.Models;
 using Data;
 using Entities;
 using Logic.ILogic;
@@ -8,12 +9,10 @@ namespace coderview_API.Service
     public class UserService : IUserService
     {
         private readonly IUserLogic _userLogic;
-        private readonly ServiceContext _serviceContext;
-        public UserService(ServiceContext serviceContext, IUserLogic userLogic)
+        
+        public UserService(IUserLogic userLogic)
         {
-            _userLogic = userLogic;
-            _serviceContext = serviceContext;
-
+            _userLogic = userLogic;   
         }
 
         public List<UserItem> GetAllUsers()

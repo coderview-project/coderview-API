@@ -26,14 +26,11 @@ builder.Services.AddSwaggerGen();
 //Services
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IFileService, FileService>();
-
+builder.Services.AddScoped<IEvaluationService, EvaluationService>();
 
 //Logic
 builder.Services.AddScoped<IUserLogic, UserLogic>();
-
-
-
-
+builder.Services.AddScoped<IEvaluationLogic, EvaluationLogic>();
 
 builder.Services.AddDbContext<ServiceContext>(
         options => options.UseSqlServer("name=ConnectionStrings:ServiceContext"));
