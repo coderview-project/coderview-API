@@ -1,4 +1,5 @@
-﻿using Entities;
+﻿using Data;
+using Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 using Microsoft.Extensions.Configuration;
@@ -14,7 +15,6 @@ namespace Data
         public DbSet<UserItem> Users { get; set; }
         public DbSet<FileItem> Files { get; set; }
 
-        public DbSet<BootcampItem> Bootcamps { get; set; } 
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -28,10 +28,7 @@ namespace Data
             {
                 file.ToTable("t_files");
             });
-            builder.Entity<BootcampItem>(bootcamp =>
-            {
-                bootcamp.ToTable("t_bootcamps");
-            });
+           
 
         }
     }
