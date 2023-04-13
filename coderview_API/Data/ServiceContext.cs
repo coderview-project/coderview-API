@@ -3,6 +3,7 @@ using Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Identity.Client;
 using System.Collections.Generic;
 using System.Reflection.Emit;
 
@@ -16,6 +17,7 @@ namespace Data
         public DbSet<FileItem> Files { get; set; }
         public DbSet<EvaluationItem> Evaluations { get; set; }
 
+        public DbSet<EvaluationType> EvaluationTypes { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -33,6 +35,11 @@ namespace Data
             {
                 e.ToTable("t_evaluations");
             });
+            builder.Entity<EvaluationType>(t =>
+            {
+                t.ToTable("t_evaluationTypes");
+            });
+            
 
         }
     }

@@ -16,7 +16,7 @@ namespace Entities
         public int TypeId { get; set; }
         public int StateId { get; set; }
         public int ValueId { get; set; }
-        public int Content { get; set; }
+        public int ContentId { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime FinishDate { get; set; }
 
