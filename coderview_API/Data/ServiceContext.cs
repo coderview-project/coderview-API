@@ -14,6 +14,7 @@ namespace Data
         public ServiceContext(DbContextOptions<ServiceContext> options) : base(options) { }
         public DbSet<UserItem> Users { get; set; }
         public DbSet<FileItem> Files { get; set; }
+        public DbSet<SkillsItem> Skills { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder builder)
@@ -27,6 +28,11 @@ namespace Data
             builder.Entity<FileItem>(file =>
             {
                 file.ToTable("t_files");
+            });
+
+            builder.Entity<SkillsItem>(skills =>
+            {
+                skills.ToTable("t_skills");
             });
            
 
