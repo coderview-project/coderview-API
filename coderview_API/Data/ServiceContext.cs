@@ -14,10 +14,12 @@ namespace Data
     {
         public ServiceContext(DbContextOptions<ServiceContext> options) : base(options) { }
         public DbSet<UserItem> Users { get; set; }
+        public DbSet<UserRol> UserRols { get; set; }
         public DbSet<FileItem> Files { get; set; }
         public DbSet<EvaluationItem> Evaluations { get; set; }
         public DbSet<EvaluationType> EvaluationTypes { get; set; }
         public DbSet<EvaluationState>EvaluationStates { get; set; }
+        public DbSet<EvaluationValue> EvaluationValues { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -25,6 +27,7 @@ namespace Data
             builder.Entity<UserItem>(user =>
             {
                 user.ToTable("t_users");
+                user.HasOne<UserRol>().WithMany().HasForeignKey(u => u.UserRolId);
 
             });
             builder.Entity<FileItem>(file =>
@@ -34,11 +37,12 @@ namespace Data
             builder.Entity<EvaluationItem>(e =>
             {
                 e.ToTable("t_evaluations");
-                e.HasOne<UserItem>().WithMany().HasForeignKey(e => e.UserId);
+                e.HasOne<UserItem>().WithMany().HasForeignKey(e => e.UserId).OnDelete(DeleteBehavior.Restrict);
                 e.HasOne<UserItem>().WithMany().HasForeignKey(e => e.EvaluateeUserId);
                 e.HasOne<EvaluationType>().WithMany().HasForeignKey(e => e.TypeId);
                 e.HasOne<EvaluationState>().WithMany().HasForeignKey(e => e.StateId);
                 e.HasOne<EvaluationValue>().WithMany().HasForeignKey(e => e.ValueId);
+                
             });
             builder.Entity<EvaluationType>(t =>
             {
@@ -48,7 +52,14 @@ namespace Data
             {
                 s.ToTable("t_evaluationStates");
             });
-            
+            builder.Entity<EvaluationValue>(v =>
+            {
+                v.ToTable("t_evaluationValues");
+            });
+            builder.Entity<UserRol>(r =>
+            {
+                r.ToTable("t_userRols");
+            });
 
         }
     }

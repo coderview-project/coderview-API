@@ -16,6 +16,7 @@ namespace Entities
         }
         public int Id { get; set; }
         public int IdPhotoFile { get; set; }
+        public int UserRolId { get; set; }
         public string Name { get; set; }
         public string LastName { get; set; }
         public string Email { get; set; }

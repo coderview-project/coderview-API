@@ -29,12 +29,14 @@ builder.Services.AddScoped<IFileService, FileService>();
 builder.Services.AddScoped<IEvaluationService, EvaluationService>();
 builder.Services.AddScoped<IEvaluationTypeService, EvaluationTypeService>();
 builder.Services.AddScoped<IEvaluationStateService, EvaluationStateService>();
+builder.Services.AddScoped<IUserRolService, UserRolService>();
 
 //Logic
 builder.Services.AddScoped<IUserLogic, UserLogic>();
 builder.Services.AddScoped<IEvaluationLogic, EvaluationLogic>();
 builder.Services.AddScoped<IEvaluationTypeLogic, EvaluationTypeLogic>();
 builder.Services.AddScoped<IEvaluationStateLogic, EvaluationStateLogic>();
+builder.Services.AddScoped<IUserRolLogic, UserRolLogic>();
 
 builder.Services.AddDbContext<ServiceContext>(
         options => options.UseSqlServer("name=ConnectionStrings:ServiceContext"));
