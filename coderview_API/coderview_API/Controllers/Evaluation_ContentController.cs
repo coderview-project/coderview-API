@@ -28,6 +28,8 @@ namespace coderview_API.Controllers
             return _evaluation_contentService.PostEvaluation_Content(eContent);
         }
 
+        [HttpDelete(Name = "DeleteEvaluation_Content")]
+
         public void DeleteEvaluation_Content([FromQuery] int id)
         {
             _evaluation_contentService.DeleteEvaluation_Content(id);
