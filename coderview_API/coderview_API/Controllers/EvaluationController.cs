@@ -36,7 +36,7 @@ namespace coderview_API.Controllers
         }
 
         [HttpDelete(Name = "DeactivateEvaluation")]
-        public void DeactivateEvaluation(int id)
+        public void DeactivateEvaluation([FromQuery] int id)
         {
             _evaluationService.DeactivateEvaluation(id);
         }

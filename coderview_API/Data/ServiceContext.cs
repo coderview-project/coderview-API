@@ -20,6 +20,8 @@ namespace Data
         public DbSet<EvaluationType> EvaluationTypes { get; set; }
         public DbSet<EvaluationState>EvaluationStates { get; set; }
         public DbSet<EvaluationValue> EvaluationValues { get; set; }
+        public DbSet<Bootcamp_Content> Bootcamp_Contents { get; set; }
+        public DbSet<Evaluation_Content> Evaluation_Contents { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -59,6 +61,16 @@ namespace Data
             builder.Entity<UserRol>(r =>
             {
                 r.ToTable("t_userRols");
+            });
+            builder.Entity<Evaluation_Content>(ec =>
+            {
+                ec.ToTable("t_evaluationContents");
+                ec.HasOne<EvaluationItem>().WithMany().HasForeignKey(ec => ec.EvaluationId);
+            });
+            builder.Entity<Bootcamp_Content>(bc =>
+            {
+                bc.ToTable("t_bootcampContents");
+                bc.HasOne<BootcampItem>().WithMany().HasForeignKey(bc => bc.BootcampId);
             });
 
         }

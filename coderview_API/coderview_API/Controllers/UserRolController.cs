@@ -29,7 +29,7 @@ namespace coderview_API.Controllers
         }
 
         [HttpDelete(Name = "DeactivateUserRol")]
-        public void DeactivateUserRol(int id)
+        public void DeactivateUserRol([FromQuery] int id)
         {
             _userRolService.DeactivateUserRol(id); 
         }
