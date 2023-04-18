@@ -61,6 +61,7 @@ namespace Data
             builder.Entity<UserRol>(r =>
             {
                 r.ToTable("t_userRols");
+                r.Property(r => r.Id).ValueGeneratedNever();
             });
             builder.Entity<Evaluation_Content>(ec =>
             {
@@ -70,7 +71,7 @@ namespace Data
             builder.Entity<Bootcamp_Content>(bc =>
             {
                 bc.ToTable("t_bootcampContents");
-                bc.HasOne<BootcampItem>().WithMany().HasForeignKey(bc => bc.BootcampId);
+                //bc.HasOne<BootcampItem>().WithMany().HasForeignKey(bc => bc.BootcampId);
             });
 
         }

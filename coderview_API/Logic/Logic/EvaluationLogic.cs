@@ -48,6 +48,31 @@ namespace Logic.Logic
             }
         }
 
+        public List<EvaluationItem> GetAutoevaluacion()
+        {
+            var autoevaluacion = _serviceContext.Set<EvaluationItem>().Where(a => a.UserId == a.EvaluateeUserId).ToList();
+            if(autoevaluacion != null)
+            {
+                return autoevaluacion;
+            } else
+            {
+                throw new Exception("No se encontraron autoevaluaciones");
+            }
+        }
+
+        public List<EvaluationItem> GetEvaluationByUserId(int id)
+        {
+            var evaluationByUser = _serviceContext.Set<EvaluationItem>().Where(u => u.UserId == id).ToList();
+            if (evaluationByUser != null)
+            {
+                return evaluationByUser;
+            }
+            else
+            {
+                throw new Exception("No se encontró la evaluación");
+            }
+        }
+
         public int SubmitEvaluation(EvaluationItem evaluationItem)
         {
             try

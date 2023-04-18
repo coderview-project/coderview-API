@@ -1,5 +1,6 @@
 ﻿using Data;
 using Entities;
+using Entities.Enums;
 using Logic.ILogic;
 using System;
 using System.Collections.Generic;
@@ -27,14 +28,18 @@ namespace Logic.Logic
         }
 
         public int PostUser(UserItem userItem)
-        {
+        { 
+                if (userItem.UserRolId == (int)UserEnums.Administrador)
+                {
+                    throw new InvalidOperationException();
+                };
 
-            if (!_serviceContext.Users.Any(u => u.Email == u.Email))
-            {
+                userItem.EncryptedToken = "NOT GENERATED";
+
                 _serviceContext.Users.Add(userItem);
                 _serviceContext.SaveChanges();
-            }
-            return userItem.Id;
+
+                return userItem.Id;  
         }
 
         public void UpdateUser(UserItem userItem)

@@ -1,4 +1,5 @@
-﻿using coderview_API.IService;
+﻿using coderview_API.Attributes;
+using coderview_API.IService;
 using Entities;
 using Microsoft.AspNetCore.Mvc;
 
@@ -14,6 +15,7 @@ namespace coderview_API.Controllers
             _evaluationTypeService = evaluationTypeService;
         }
 
+        [EndpointAuthorize(AllowedUserRols = "Administrador")]
         [HttpGet(Name = "GetAllEvaluationType")]
 
         public List<EvaluationType> GetAllEvaluationType()
@@ -21,6 +23,7 @@ namespace coderview_API.Controllers
             return _evaluationTypeService.GetAllEvaluationType();
         }
 
+        [EndpointAuthorize(AllowedUserRols = "Administrador")]
         [HttpPost(Name = "PostEvaluationType")]
 
         public int PostEvaluationType(EvaluationType type)

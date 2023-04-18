@@ -1,4 +1,5 @@
-﻿using coderview_API.IService;
+﻿using coderview_API.Attributes;
+using coderview_API.IService;
 using coderview_API.Models;
 using Entities;
 using Microsoft.AspNetCore.Mvc;
@@ -19,6 +20,7 @@ namespace coderview_API.Controllers
             _fileService = fileService;
         }
 
+        [EndpointAuthorize(AllowedUserRols = "Administrador, Formador, Coder")]
         [HttpPost(Name = "PostFile")]
         public int PostFile([FromForm] FileUploadModel fileUploadModel)
         {
@@ -44,7 +46,7 @@ namespace coderview_API.Controllers
                 throw;
             }
         }
-
+        [EndpointAuthorize(AllowedUserRols = "Administrador")]
         [HttpDelete(Name = "DeleteFile")]
 
         public void DeleteFile([FromQuery] int id)
@@ -52,6 +54,7 @@ namespace coderview_API.Controllers
             _fileService.DeleteFile(id);
         }
 
+        [EndpointAuthorize(AllowedUserRols = "Administrador, Formador, Coder")]
         [HttpGet(Name = "GetFileById")]
         public FileStreamResult GetFileById(int id)
         {
@@ -71,12 +74,14 @@ namespace coderview_API.Controllers
             }
         }
 
+        [EndpointAuthorize(AllowedUserRols = "Administrador")]
         [HttpGet(Name = "GetAllFilesList")]
         public List<FileItem> GetAllFilesList()
         {
             return _fileService.GetAllFilesList();
         }
 
+        [EndpointAuthorize(AllowedUserRols = "Administrador")]
         [HttpGet(Name = "GetAllFilesZip")]
         public FileStreamResult GetAllFilesZip()
         {

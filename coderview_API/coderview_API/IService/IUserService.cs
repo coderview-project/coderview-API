@@ -1,10 +1,11 @@
-﻿using Entities;
+﻿using coderview_API.Models;
+using Entities;
 
 namespace coderview_API.IService
 {
     public interface IUserService
     {
-        int PostUser(UserItem userItem);
+        int PostUser(NewUserRequestModel newUserRequest);
         void UpdateUser(UserItem userItem);
         void DeactivateUser(int id);
         List<UserItem> GetAllUsers();

@@ -27,9 +27,21 @@ namespace coderview_API.Service
             return _evaluationLogic.GetEvaluationById(id);
         }
 
+        public List<EvaluationItem> GetEvaluationByUserId(int id)
+        {
+            return _evaluationLogic.GetEvaluationByUserId(id);
+        }
+
+        public List<EvaluationItem> GetAutoevaluacion()
+        {
+            return _evaluationLogic.GetAutoevaluacion();
+         }
+
         public int SubmitEvaluation(EvaluationItem evaluationItem)
         {
             return _evaluationLogic.SubmitEvaluation(evaluationItem);
         }
+
+        
     }
 }
