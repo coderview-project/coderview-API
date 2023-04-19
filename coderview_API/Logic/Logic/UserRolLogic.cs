@@ -24,7 +24,8 @@ namespace Logic.Logic
                 var userRolToDeactivate = _serviceContext.Set<UserRol>().Where(u => u.Id == id).First();
                 userRolToDeactivate.IsActive = false;
                 _serviceContext.SaveChanges();
-            } catch
+            }
+            catch
             {
                 throw new Exception("No se pudo desactivar el user rol");
             }
@@ -39,10 +40,11 @@ namespace Logic.Logic
         {
             try
             {
-                 _serviceContext.UserRols.Add(rol);
-                 _serviceContext.SaveChanges();
-                 return rol.Id;
-            } catch
+                _serviceContext.UserRols.Add(rol);
+                _serviceContext.SaveChanges();
+                return rol.Id;
+            }
+            catch
             {
                 throw new Exception("Algo salió mal. No se pudo crear el user rol");
             }

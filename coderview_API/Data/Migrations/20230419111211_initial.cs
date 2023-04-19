@@ -6,11 +6,25 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Data.Migrations
 {
     /// <inheritdoc />
-    public partial class inital4 : Migration
+    public partial class initial : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.CreateTable(
+                name: "t_bootcampContents",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    BootcampId = table.Column<int>(type: "int", nullable: false),
+                    ContentId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_t_bootcampContents", x => x.Id);
+                });
+
             migrationBuilder.CreateTable(
                 name: "t_evaluationStates",
                 columns: table => new
@@ -73,8 +87,7 @@ namespace Data.Migrations
                 name: "t_userRols",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Id = table.Column<int>(type: "int", nullable: false),
                     Title = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     IsActive = table.Column<bool>(type: "bit", nullable: false)
@@ -90,13 +103,16 @@ namespace Data.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    IdPhotoFile = table.Column<int>(type: "int", nullable: false),
                     UserRolId = table.Column<int>(type: "int", nullable: false),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    UserName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     LastName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Password = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    IsActive = table.Column<bool>(type: "bit", nullable: false)
+                    IsActive = table.Column<bool>(type: "bit", nullable: false),
+                    InsertDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    UpdateDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    EncryptedPassword = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    EncryptedToken = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    TokenExpireDate = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -160,6 +176,31 @@ namespace Data.Migrations
                         onDelete: ReferentialAction.Restrict);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "t_evaluationContents",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    EvaluationId = table.Column<int>(type: "int", nullable: false),
+                    ContentId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_t_evaluationContents", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_t_evaluationContents_t_evaluations_EvaluationId",
+                        column: x => x.EvaluationId,
+                        principalTable: "t_evaluations",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_t_evaluationContents_EvaluationId",
+                table: "t_evaluationContents",
+                column: "EvaluationId");
+
             migrationBuilder.CreateIndex(
                 name: "IX_t_evaluations_EvaluateeUserId",
                 table: "t_evaluations",
@@ -195,10 +236,16 @@ namespace Data.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "t_evaluations");
+                name: "t_bootcampContents");
+
+            migrationBuilder.DropTable(
+                name: "t_evaluationContents");
 
             migrationBuilder.DropTable(
                 name: "t_files");
+
+            migrationBuilder.DropTable(
+                name: "t_evaluations");
 
             migrationBuilder.DropTable(
                 name: "t_evaluationStates");

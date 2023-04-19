@@ -9,7 +9,7 @@ namespace coderview_API.Controllers
     [Route("[controller]/[action]")]
     public class UserRolController
     {
-        private readonly IUserRolService _userRolService; 
+        private readonly IUserRolService _userRolService;
         public UserRolController(IUserRolService userRolService)
         {
             _userRolService = userRolService;
@@ -22,7 +22,8 @@ namespace coderview_API.Controllers
             return _userRolService.GetAllUserRol();
         }
 
-        [EndpointAuthorize(AllowedUserRols = "Administrador")]
+        //[EndpointAuthorize(AllowedUserRols = "Administrador")]
+        [EndpointAuthorize(AllowsAnonymous = true)]
         [HttpPost(Name = "PostUserRol")]
         public int PostUserRol(UserRol rol)
         {
@@ -33,7 +34,7 @@ namespace coderview_API.Controllers
         [HttpDelete(Name = "DeactivateUserRol")]
         public void DeactivateUserRol([FromQuery] int id)
         {
-            _userRolService.DeactivateUserRol(id); 
+            _userRolService.DeactivateUserRol(id);
         }
     }
 }

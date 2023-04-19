@@ -7,14 +7,14 @@ namespace coderview_API.Service
 {
     public class UserRolService : IUserRolService
     {
-        private readonly IUserRolLogic _userRolLogic; 
-        public UserRolService(IUserRolLogic userRolLogic) 
-        { 
+        private readonly IUserRolLogic _userRolLogic;
+        public UserRolService(IUserRolLogic userRolLogic)
+        {
             _userRolLogic = userRolLogic;
         }
         public void DeactivateUserRol(int id)
         {
-             _userRolLogic.DeactivateUserRol(id);
+            _userRolLogic.DeactivateUserRol(id);
         }
 
         public List<UserRol> GetAllUserRol()

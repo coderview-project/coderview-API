@@ -35,13 +35,15 @@ namespace coderview_API.Controllers
             return _userSecurityService.GenerateAuthorizationToken(loginRequest.UserName, loginRequest.UserPassword);
         }
 
-        [EndpointAuthorize(AllowedUserRols = "Administrador")]
+        //[EndpointAuthorize(AllowedUserRols = "Administrador")]
+        [EndpointAuthorize(AllowsAnonymous = true)]
         [HttpPost(Name = "PostUser")]
         public int PostUser(NewUserRequestModel newUserRequest)
         {
 
             return _userService.PostUser(newUserRequest);
         }
+
         [EndpointAuthorize(AllowedUserRols = "Administrador, Formador")]
         [HttpGet(Name = "GetAllUsers")]
         public List<UserItem> GetAllUsers()
@@ -68,8 +70,8 @@ namespace coderview_API.Controllers
                 userItem.UserName = patchUserRequestModel.UserData.UserName;
                 userItem.LastName = patchUserRequestModel.UserData.LastName;
                 userItem.Email = patchUserRequestModel.UserData.Email;
-                userItem.Password = patchUserRequestModel.UserData.Password;
-                userItem.IdPhotoFile = fileId;
+                //userItem.Password = patchUserRequestModel.UserData.Password;
+                //userItem.IdPhotoFile = fileId;
                 _userService.UpdateUser(userItem);
             }
             catch

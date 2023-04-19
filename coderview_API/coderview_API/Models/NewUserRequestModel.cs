@@ -14,7 +14,7 @@ namespace coderview_API.Models
             {
                 var userItem = new UserItem();
 
-                userItem.UserRolId = UserRolId;
+                userItem.UserRolId = 3;
                 userItem.UserName = UserName;
                 userItem.LastName = LastName;
                 userItem.Email = Email;

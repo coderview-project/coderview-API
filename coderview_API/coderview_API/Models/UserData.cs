@@ -4,9 +4,7 @@ namespace coderview_API.Models
 {
     public class UserData
     {
-        
         public int Id { get; set; }
-
         public int IdPhotoFile { get; set; }
         public int UserRolId { get; set; }
         public string UserName { get; set; }

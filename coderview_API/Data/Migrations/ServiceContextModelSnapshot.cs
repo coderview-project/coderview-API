@@ -22,6 +22,25 @@ namespace Data.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("Entities.Bootcamp_Content", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("BootcampId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ContentId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("t_bootcampContents", (string)null);
+                });
+
             modelBuilder.Entity("Entities.EvaluationItem", b =>
                 {
                     b.Property<int>("Id")
@@ -130,6 +149,27 @@ namespace Data.Migrations
                     b.ToTable("t_evaluationValues", (string)null);
                 });
 
+            modelBuilder.Entity("Entities.Evaluation_Content", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("ContentId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("EvaluationId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("EvaluationId");
+
+                    b.ToTable("t_evaluationContents", (string)null);
+                });
+
             modelBuilder.Entity("Entities.FileItem", b =>
                 {
                     b.Property<int>("Id")
@@ -172,8 +212,16 @@ namespace Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("IdPhotoFile")
-                        .HasColumnType("int");
+                    b.Property<string>("EncryptedPassword")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("EncryptedToken")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("InsertDate")
+                        .HasColumnType("datetime2");
 
                     b.Property<bool>("IsActive")
                         .HasColumnType("bit");
@@ -182,11 +230,13 @@ namespace Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<DateTime>("TokenExpireDate")
+                        .HasColumnType("datetime2");
 
-                    b.Property<string>("Password")
+                    b.Property<DateTime>("UpdateDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("UserName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -203,10 +253,7 @@ namespace Data.Migrations
             modelBuilder.Entity("Entities.UserRol", b =>
                 {
                     b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Description")
                         .IsRequired()
@@ -253,6 +300,15 @@ namespace Data.Migrations
                     b.HasOne("Entities.EvaluationValue", null)
                         .WithMany()
                         .HasForeignKey("ValueId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Entities.Evaluation_Content", b =>
+                {
+                    b.HasOne("Entities.EvaluationItem", null)
+                        .WithMany()
+                        .HasForeignKey("EvaluationId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
