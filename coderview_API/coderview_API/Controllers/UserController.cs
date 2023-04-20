@@ -7,8 +7,6 @@ using Data;
 using Entities;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using System.Security.Cryptography;
-using System.Text;
 
 namespace coderview_API.Controllers
 {
@@ -42,6 +40,14 @@ namespace coderview_API.Controllers
         {
 
             return _userService.PostUser(newUserRequest);
+        }
+
+        [EndpointAuthorize(AllowsAnonymous = true)]
+        [HttpPost(Name = "PostInstructor")]
+        public int PostInstructor(NewInstructorRequestModel newInstructorRequest)
+        {
+
+            return _userService.PostInstructor(newInstructorRequest);
         }
 
         [EndpointAuthorize(AllowedUserRols = "Administrador, Formador")]

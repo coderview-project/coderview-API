@@ -30,6 +30,12 @@ namespace coderview_API.Service
             return _userLogic.PostUser(newUserItem);
         }
 
+        public int PostInstructor(NewInstructorRequestModel newInstructorRequest)
+        {
+            var newInstructor = newInstructorRequest.ToUserItem();
+            newInstructor.EncryptedPassword = _userSecurityLogic.HashString(newInstructorRequest.Password);
+            return _userLogic.PostInstructor(newInstructor);
+        }
         public void UpdateUser(UserItem userItem)
         {
             _userLogic.UpdateUser(userItem);

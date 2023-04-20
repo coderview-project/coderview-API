@@ -42,6 +42,21 @@ namespace Logic.Logic
                 return userItem.Id;  
         }
 
+        public int PostInstructor(UserItem userItem)
+        {
+            if (userItem.UserRolId == (int)UserEnums.Administrador)
+            {
+                throw new InvalidOperationException();
+            };
+
+            userItem.EncryptedToken = "NOT GENERATED";
+
+            _serviceContext.Users.Add(userItem);
+            _serviceContext.SaveChanges();
+
+            return userItem.Id;
+        }
+
         public void UpdateUser(UserItem userItem)
         {
             _serviceContext.Users.Update(userItem);
