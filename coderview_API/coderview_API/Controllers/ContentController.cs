@@ -30,7 +30,7 @@ namespace coderview_API.Controllers
         }
         [HttpPatch(Name = "ModifyContent")]
 
-        public void Pactch( [FromBody] PatchContentRequestModel patchContentRequestModel)
+        public void Patch( [FromBody] PatchContentRequestModel patchContentRequestModel)
         {
             try
             {
@@ -56,20 +56,9 @@ namespace coderview_API.Controllers
         [HttpPost(Name = "PostContent")]
 
         public int PostContent([FromForm] ContentItem contentItem)
-        {
-            using (var stream = new MemoryStream())
-            {
-                contentItem.Content.Add(contentItem);
-                contentItem.content = stream.ToArray();
-
-                return _contentService.PostContent(contentItem);
-            }
+        {            
+           return _contentService.PostContent(contentItem);
             
-
-
-
-
-
         }
     }
 }
