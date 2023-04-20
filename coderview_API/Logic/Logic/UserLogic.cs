@@ -28,7 +28,9 @@ namespace Logic.Logic
         }
 
         public int PostUser(UserItem userItem)
-        { 
+        {
+            if (!_serviceContext.Users.Any(u => u.Email == u.Email))
+            {
                 if (userItem.UserRolId == (int)UserEnums.Administrador)
                 {
                     throw new InvalidOperationException();
@@ -38,8 +40,8 @@ namespace Logic.Logic
 
                 _serviceContext.Users.Add(userItem);
                 _serviceContext.SaveChanges();
-
-                return userItem.Id;  
+            }
+            return userItem.Id;
         }
 
         public int PostInstructor(UserItem userItem)
