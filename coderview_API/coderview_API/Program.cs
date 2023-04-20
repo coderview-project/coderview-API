@@ -26,10 +26,13 @@ builder.Services.AddSwaggerGen();
 //Services
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IFileService, FileService>();
+builder.Services.AddScoped<IContentService, ContentService>();
+
 
 
 //Logic
 builder.Services.AddScoped<IUserLogic, UserLogic>();
+builder.Services.AddScoped<IContentLogic, ContentLogic>();
 
 
 
