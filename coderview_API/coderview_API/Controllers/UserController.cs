@@ -27,10 +27,13 @@ namespace coderview_API.Controllers
 
         [EndpointAuthorize(AllowsAnonymous = true)]
         [HttpPost(Name = "LoginUser")]
-        public string Login([FromBody] LoginRequestModel loginRequest)
+        public Tuple<string, int> Login([FromBody] LoginRequestModel loginRequest)
         {
-
-            return _userSecurityService.GenerateAuthorizationToken(loginRequest.UserName, loginRequest.UserPassword);
+            var userData = _userService.GetAllUsers();
+            UserItem user = userData.Where(u => u.UserName == loginRequest.UserName).First();
+            int userIdRol = user.UserRolId;
+            string token = _userSecurityService.GenerateAuthorizationToken(loginRequest.UserName, loginRequest.UserPassword);
+            return new Tuple<string, int>(token, userIdRol);
         }
 
         //[EndpointAuthorize(AllowedUserRols = "Administrador")]
