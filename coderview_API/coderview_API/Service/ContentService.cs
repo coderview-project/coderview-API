@@ -1,5 +1,6 @@
 ﻿using coderview_API.IService;
 using Data;
+using Entities;
 using Entities.Enums;
 using Logic.ILogic;
 
@@ -9,11 +10,8 @@ namespace coderview_API.Service
     {
         private readonly IContentLogic  _contentLogic;
 
-        private readonly ServiceContext _serviceContext;
-
-        public ContentService(ServiceContext serviceContext, IContentLogic contentLogic)
+        public ContentService(IContentLogic contentLogic)
         {
-            _serviceContext = serviceContext;
             _contentLogic= contentLogic;
 
         }

@@ -22,6 +22,7 @@ namespace Data
         public DbSet<EvaluationValue> EvaluationValues { get; set; }
         public DbSet<Bootcamp_Content> Bootcamp_Contents { get; set; }
         public DbSet<Evaluation_Content> Evaluation_Contents { get; set; }
+        public DbSet<ContentItem> Contents { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -72,6 +73,10 @@ namespace Data
             {
                 bc.ToTable("t_bootcampContents");
                 //bc.HasOne<BootcampItem>().WithMany().HasForeignKey(bc => bc.BootcampId);
+            });
+            builder.Entity<ContentItem>(c =>
+            {
+                c.ToTable("t_contents");
             });
 
         }
