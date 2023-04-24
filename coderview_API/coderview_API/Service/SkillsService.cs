@@ -11,35 +11,28 @@ namespace coderview_API.Service
         private readonly ISkillsLogic _skillsLogic;
         private readonly ServiceContext _serviceContext;
 
-        public  SkillsService(ServiceContext serviceContext, ISkillsLogic skillsLogic)
-        {
-            _serviceContext = serviceContext;
+        public  SkillsService(ISkillsLogic skillsLogic)
+        {   
             _skillsLogic = skillsLogic;
-
         }
 
         public List<SkillsItem> GetAllSkills()
         {
             return _skillsLogic.GetAllSkills();
         }
-        int ISkillsService.PostSkills(SkillsItem skillsItem) 
+        int ISkillsService.PostSkills(SkillsItem skill) 
         {
-            _skillsLogic.PostSkills(skillsItem);
-            return skillsItem.Id;
+            _skillsLogic.PostSkills(skill);
+            return skill.Id;
         }
-        public void UpdateSkills(SkillsItem skillsItem)
+        public void UpdateSkills(SkillsItem skill)
         {
-            _skillsLogic.UpdateSkills(skillsItem);
+            _skillsLogic.UpdateSkills(skill);
         }
         void ISkillsService.DeactivateSkills(int id)
         { 
             _skillsLogic.DeactivateSkills(id); 
         }
 
-        
-        public void GetSkills(int id)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

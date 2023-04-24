@@ -30,7 +30,7 @@ namespace coderview_API.Controllers
 
 
         [HttpPatch(Name = "ModifyContent")]
-        public void Patch( [FromBody] ContentItem contentItem)
+        public void UpdateContent([FromBody] ContentItem contentItem)
         {
                 _contentService.UpdateContent(contentItem);
         }

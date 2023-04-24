@@ -26,21 +26,22 @@ namespace Logic.Logic
                 .ToList();
 
         }
-        public int PostSkills(SkillsItem skillsItem)
+        public int PostSkills(SkillsItem skill)
         {
-           return skillsItem.Id;
+           return skill.Id;
         }
-        public void UpdateSkills(SkillsItem skillsItem)
+        public void UpdateSkills(SkillsItem skill)
         {
-            throw new NotImplementedException();
+            _serviceContext.Skills.Update(skill);
+            _serviceContext.SaveChanges();
         }
 
         public void DeactivateSkills(int id)
         {
-            var skillsToDeactivate = _serviceContext.Set<SkillsItem>()
+            var skillToDeactivate = _serviceContext.Set<SkillsItem>()
                 .Where(u => u.Id == id).First();
 
-            skillsToDeactivate.IsActive = false;
+            skillToDeactivate.IsActive = false;
 
             _serviceContext.SaveChanges();
 

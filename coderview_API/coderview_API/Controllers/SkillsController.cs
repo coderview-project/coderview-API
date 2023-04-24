@@ -18,9 +18,9 @@ namespace coderview_API.Controllers
         }
 
         [HttpPost(Name = "PostSkills")]
-        public int PostSkills(SkillsItem skillsItem)
+        public int PostSkills(SkillsItem skill)
         {
-            return _skillsService.PostSkills(skillsItem);
+            return _skillsService.PostSkills(skill);
         }
 
         [HttpGet(Name = "GetAllSkills")]
@@ -30,22 +30,9 @@ namespace coderview_API.Controllers
         }
 
         [HttpPatch(Name = "ModifySkills")]
-        public void Patch([FromBody] PatchSkillsRequestModel patchSkillsRequestModel)
+        public void UpdateSkills([FromBody] SkillsItem skill)
         {
-            try
-            {
-                var skillsItem = new SkillsItem();
-
-                skillsItem.Title = patchSkillsRequestModel.SkillsData.Title;
-                skillsItem.Criteria = patchSkillsRequestModel.SkillsData.Criteria;
-                skillsItem.Actions = patchSkillsRequestModel.SkillsData.Actions;
-                _skillsService.UpdateSkills(skillsItem);
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-           
+            _skillsService.UpdateSkills(skill);  
         }
         [HttpDelete(Name ="DeactivateSkills")]
         public void DeactivateSkills([FromQuery]int id)

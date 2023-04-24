@@ -59,8 +59,6 @@ builder.Services.AddScoped<IEvaluationService, EvaluationService>();
 builder.Services.AddScoped<IEvaluationTypeService, EvaluationTypeService>();
 builder.Services.AddScoped<IEvaluationStateService, EvaluationStateService>();
 builder.Services.AddScoped<IContentService, ContentService>();
-
-
 builder.Services.AddScoped<IUserSecurityService, UserSecurityService>();
 
 //Logic
@@ -70,8 +68,6 @@ builder.Services.AddScoped<IEvaluationLogic, EvaluationLogic>();
 builder.Services.AddScoped<IEvaluationTypeLogic, EvaluationTypeLogic>();
 builder.Services.AddScoped<IEvaluationStateLogic, EvaluationStateLogic>();
 builder.Services.AddScoped<IContentLogic, ContentLogic>();
-
-
 
 
 builder.Services.AddScoped<IUserSecurityLogic, UserSecurityLogic>();

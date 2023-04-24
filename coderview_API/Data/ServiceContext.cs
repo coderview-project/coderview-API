@@ -84,6 +84,7 @@ namespace Data
             builder.Entity<ContentItem>(c =>
             {
                 c.ToTable("t_contents");
+                c.HasOne<SkillsItem>().WithMany().HasForeignKey(c => c.SkillId);
             });
 
         }
