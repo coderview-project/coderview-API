@@ -23,9 +23,11 @@ namespace coderview_API.Service
             return _userLogic.GetAllUsers();
         }
 
+        //Original 
+
         public int PostUser(NewUserRequestModel newUserRequest)
         {
-            var newUserItem = newUserRequest.ToUserItem();
+           var newUserItem = newUserRequest.ToUserItem();
             newUserItem.EncryptedPassword = _userSecurityLogic.HashString(newUserRequest.Password);
             return _userLogic.PostUser(newUserItem);
         }
@@ -39,5 +41,61 @@ namespace coderview_API.Service
         {
             _userLogic.DeactivateUser(id);
         }
+
+        //// Ejemplo Marco 
+
+        
+        //public int PostUser(NewUserRequestModel newUserRequest)
+        //{
+        //    if (ValidateNewUser(newUserRequest))
+        //    { 
+        //    var newUserItem = newUserRequest.ToUserItem();
+        //    newUserItem.EncryptedPassword = _userSecurityLogic.HashString(newUserRequest.Password);
+        //    return _userLogic.PostUser(newUserItem);
+        //    }
+        //    else
+        //    {
+        //        throw new InvalidDataException();
+        //    }
+        //}
+        //public int ValidateNewUser(UserItem userItem) 
+        //{
+
+          
+        //    if(userItem == null) 
+        //    {
+        //        return false;
+        //    }
+        //    if (userItem.UserName == null || userItem.UserName =="") 
+        //    {
+        //       return false;
+        //    }
+        //    if (userItem.LastName== null || userItem.LastName == "")
+        //    {
+        //       return false;
+        //    }
+        //    if (userItem.LastName == null || userItem.LastName == "")
+        //    {
+        //        return false;
+        //    }
+        //    if (userItem.Email == null || userItem.Email == "")
+        //    {
+        //       return false;
+        //    }
+        //    if (userItem.InsertDate > DateTime.Now)
+        //    {
+        //        return false;
+        //    }
+        //    if (userItem.UpdateDate != null)
+        //    {
+        //        return false;
+
+
+                
+        //    return true;
+                
+            
+        //}
     }
+    
 }

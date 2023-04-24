@@ -3,13 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33205.214
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "coderview_API", "coderview_API\coderview_API.csproj", "{1307C890-93CC-4A46-8D77-854366BA1B95}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "coderview_API", "coderview_API\coderview_API.csproj", "{1307C890-93CC-4A46-8D77-854366BA1B95}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entities", "Entities\Entities.csproj", "{A0A89064-E051-45CF-8E8A-39F4902B997C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Entities", "Entities\Entities.csproj", "{A0A89064-E051-45CF-8E8A-39F4902B997C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data", "Data\Data.csproj", "{DE6B8DC2-917A-4113-B4E7-293E46B304BE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Data", "Data\Data.csproj", "{DE6B8DC2-917A-4113-B4E7-293E46B304BE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logic", "Logic\Logic.csproj", "{69F2ED40-325A-4EE9-A786-29E075371C7E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Logic", "Logic\Logic.csproj", "{69F2ED40-325A-4EE9-A786-29E075371C7E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestProject", "TestProject\TestProject.csproj", "{23F1A6DA-8A25-4237-AC74-C15A352697F4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{69F2ED40-325A-4EE9-A786-29E075371C7E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{69F2ED40-325A-4EE9-A786-29E075371C7E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{69F2ED40-325A-4EE9-A786-29E075371C7E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{23F1A6DA-8A25-4237-AC74-C15A352697F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{23F1A6DA-8A25-4237-AC74-C15A352697F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{23F1A6DA-8A25-4237-AC74-C15A352697F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{23F1A6DA-8A25-4237-AC74-C15A352697F4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
