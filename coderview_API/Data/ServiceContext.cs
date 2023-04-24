@@ -16,6 +16,7 @@ namespace Data
         public DbSet<UserItem> Users { get; set; }
         public DbSet<UserRol> UserRols { get; set; }
         public DbSet<FileItem> Files { get; set; }
+        public DbSet<SkillsItem> Skills { get; set; }
         public DbSet<EvaluationItem> Evaluations { get; set; }
         public DbSet<EvaluationType> EvaluationTypes { get; set; }
         public DbSet<EvaluationState>EvaluationStates { get; set; }
@@ -37,6 +38,12 @@ namespace Data
             {
                 file.ToTable("t_files");
             });
+
+            builder.Entity<SkillsItem>(skills =>
+            {
+                skills.ToTable("t_skills");
+            });
+           
             builder.Entity<EvaluationItem>(e =>
             {
                 e.ToTable("t_evaluations");

@@ -54,6 +54,7 @@ builder.Services.AddSwaggerGen(opt =>
 //Services
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IFileService, FileService>();
+builder.Services.AddScoped<ISkillsService, SkillsService>();
 builder.Services.AddScoped<IEvaluationService, EvaluationService>();
 builder.Services.AddScoped<IEvaluationTypeService, EvaluationTypeService>();
 builder.Services.AddScoped<IEvaluationStateService, EvaluationStateService>();
@@ -64,6 +65,7 @@ builder.Services.AddScoped<IUserSecurityService, UserSecurityService>();
 
 //Logic
 builder.Services.AddScoped<IUserLogic, UserLogic>();
+builder.Services.AddScoped<ISkillsLogic,SkillsLogic>();
 builder.Services.AddScoped<IEvaluationLogic, EvaluationLogic>();
 builder.Services.AddScoped<IEvaluationTypeLogic, EvaluationTypeLogic>();
 builder.Services.AddScoped<IEvaluationStateLogic, EvaluationStateLogic>();
