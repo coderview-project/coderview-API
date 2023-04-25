@@ -50,7 +50,7 @@ namespace Logic.Logic
 
         public List<EvaluationItem> GetAutoevaluacion()
         {
-            var autoevaluacion = _serviceContext.Set<EvaluationItem>().Where(a => a.UserId == a.EvaluateeUserId).ToList();
+            var autoevaluacion = _serviceContext.Set<EvaluationItem>().Where(a => a.EvaluatorId == a.EvaluateeUserId).ToList();
             if(autoevaluacion != null)
             {
                 return autoevaluacion;
@@ -62,7 +62,7 @@ namespace Logic.Logic
 
         public List<EvaluationItem> GetEvaluationByUserId(int id)
         {
-            var evaluationByUser = _serviceContext.Set<EvaluationItem>().Where(u => u.UserId == id).ToList();
+            var evaluationByUser = _serviceContext.Set<EvaluationItem>().Where(u => u.EvaluatorId == id).ToList();
             if (evaluationByUser != null)
             {
                 return evaluationByUser;

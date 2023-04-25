@@ -10,6 +10,7 @@ namespace Entities
     public class EvaluationValue
     {
         public int Id { get; set; }
-        public EvaluationValueEnum Level { get; set; }
+        public EvaluationValueEnum Title { get; set; }
+        public int Value { get; set; }
     }
 }

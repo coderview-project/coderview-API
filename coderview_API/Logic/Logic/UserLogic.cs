@@ -29,18 +29,18 @@ namespace Logic.Logic
 
         public int PostUser(UserItem userItem)
         {
-            if (!_serviceContext.Users.Any(u => u.Email == u.Email))
-            {
-                if (userItem.UserRolId == (int)UserEnums.Administrador)
+            
+            
+            if (userItem.UserRolId == (int)UserEnums.Administrador)
                 {
                     throw new InvalidOperationException();
                 };
 
-                userItem.EncryptedToken = "NOT GENERATED";
+            userItem.EncryptedToken = "NOT GENERATED";
 
-                _serviceContext.Users.Add(userItem);
-                _serviceContext.SaveChanges();
-            }
+            _serviceContext.Users.Add(userItem);
+            _serviceContext.SaveChanges();
+            
             return userItem.Id;
         }
 

@@ -10,30 +10,30 @@ using System.Threading.Tasks;
 
 namespace Logic.Logic
 {
-    public class Evaluation_ContentLogic : IEvaluation_ContentLogic
+    public class EvaluationContentLogic : IEvaluationContentLogic
     {
         private readonly ServiceContext _serviceContext; 
-        public Evaluation_ContentLogic(ServiceContext serviceContext)
+        public EvaluationContentLogic(ServiceContext serviceContext)
         {
             _serviceContext = serviceContext;
         }
 
-        public List<Evaluation_Content> GetAllEvaluation_Content()
+        public List<EvaluationContent> GetAllEvaluationContent()
         {
             try
             {
-                return _serviceContext.Set<Evaluation_Content>().ToList();
+                return _serviceContext.Set<EvaluationContent>().ToList();
             } catch
             {
                 throw new Exception("Algo salió mal. No se pudo recuperar las entradas");
             }
         }
 
-        public int PostEvaluation_Content(Evaluation_Content econtent)
+        public int PostEvaluationContent(EvaluationContent econtent)
         {
             try
             {
-                _serviceContext.Evaluation_Contents.Add(econtent);
+                _serviceContext.EvaluationContents.Add(econtent);
                 _serviceContext.SaveChanges();
                 return econtent.Id;
             } catch
@@ -41,11 +41,11 @@ namespace Logic.Logic
                 throw new Exception("No se pudo crear la entrada");
             }
         }
-        public void DeleteEvaluation_Content(int id)
+        public void DeleteEvaluationContent(int id)
         {
             try
             {
-                _serviceContext.Evaluation_Contents.Remove(_serviceContext.Set<Evaluation_Content>().Where(ec => ec.Id == id).FirstOrDefault());
+                _serviceContext.EvaluationContents.Remove(_serviceContext.Set<EvaluationContent>().Where(ec => ec.Id == id).FirstOrDefault());
                 _serviceContext.SaveChanges();
                 
             } catch

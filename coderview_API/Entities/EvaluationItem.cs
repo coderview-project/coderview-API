@@ -13,15 +13,10 @@ namespace Entities
             IsActive = true;
         }
         public int Id { get; set; }
-        public int TypeId { get; set; }
-        public int UserId { get; set; }
+        public int EvaluatorId { get; set; }
         public int EvaluateeUserId { get; set; }
-        public int StateId { get; set; }
-        public int ValueId { get; set; }
-        public int ContentId { get; set; }
         public DateTime StartDate { get; set; }
-        public DateTime FinishDate { get; set; }
-
+        public DateTime EndDate { get; set; }
         public bool IsActive { get; set; }
 
     }

@@ -27,7 +27,5 @@ namespace Entities
         public string EncryptedToken { get; set; }
         public DateTime TokenExpireDate { get; set; }
 
-        [NotMapped]
-        public string ConfirmPassword { get; set; }
     }
 }

@@ -8,11 +8,12 @@ namespace Entities.Enums
 {
     public enum EvaluationValueEnum
     {
-        Level1 = 1, 
-        Level2 = 2, 
-        Level3 = 3, 
-        Level4 = 4, 
-        Level5 = 5, 
-        Level6 = 6
+        SaberInvestigar = 1, 
+        SaberRecordar = 2,
+        SaberComprender = 3,
+        SaberAplicar = 4, 
+        SaberAnalizar = 5, 
+        SaberCrear = 6
+
     }
 }

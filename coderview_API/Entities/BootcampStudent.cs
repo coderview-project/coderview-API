@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace Entities
 {
-    public class Bootcamp_Content
+    public class BootcampStudent
     {
         public int Id { get; set; }
         public int BootcampId { get; set; }
-        public int ContentId { get; set; }
+        public int UserId { get; set; }
     }
 }

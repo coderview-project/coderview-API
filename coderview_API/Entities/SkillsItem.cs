@@ -14,8 +14,6 @@ namespace Entities
         }
         public int Id { get; set; }
         public string Title { get; set; }
-        public string Criteria{ get; set; }
-        public string  Actions { get; set; }
         public bool IsActive { get; set; }
 
     }

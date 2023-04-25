@@ -16,13 +16,12 @@ namespace Data
         public DbSet<UserItem> Users { get; set; }
         public DbSet<UserRol> UserRols { get; set; }
         public DbSet<FileItem> Files { get; set; }
-        public DbSet<SkillsItem> Skills { get; set; }
         public DbSet<EvaluationItem> Evaluations { get; set; }
-        public DbSet<EvaluationType> EvaluationTypes { get; set; }
-        public DbSet<EvaluationState>EvaluationStates { get; set; }
+        public DbSet<BootcampItem> Bootcamps { get; set; }
+        public DbSet<BootcampStudent> BootCampStudents { get; set; }
         public DbSet<EvaluationValue> EvaluationValues { get; set; }
-        public DbSet<Bootcamp_Content> Bootcamp_Contents { get; set; }
-        public DbSet<Evaluation_Content> Evaluation_Contents { get; set; }
+        public DbSet<EvaluationContent> EvaluationContents { get; set; }
+        public DbSet<SkillsItem> Skills { get; set; }
         public DbSet<ContentItem> Contents { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
@@ -32,35 +31,23 @@ namespace Data
             {
                 user.ToTable("t_users");
                 user.HasOne<UserRol>().WithMany().HasForeignKey(u => u.UserRolId);
-
             });
             builder.Entity<FileItem>(file =>
             {
                 file.ToTable("t_files");
             });
-
-            builder.Entity<SkillsItem>(skills =>
-            {
-                skills.ToTable("t_skills");
-            });
-           
             builder.Entity<EvaluationItem>(e =>
             {
                 e.ToTable("t_evaluations");
-                e.HasOne<UserItem>().WithMany().HasForeignKey(e => e.UserId).OnDelete(DeleteBehavior.Restrict);
+                e.HasOne<UserItem>().WithMany().HasForeignKey(e => e.EvaluatorId).OnDelete(DeleteBehavior.Restrict);
                 e.HasOne<UserItem>().WithMany().HasForeignKey(e => e.EvaluateeUserId);
-                e.HasOne<EvaluationType>().WithMany().HasForeignKey(e => e.TypeId);
-                e.HasOne<EvaluationState>().WithMany().HasForeignKey(e => e.StateId);
-                e.HasOne<EvaluationValue>().WithMany().HasForeignKey(e => e.ValueId);
-                
             });
-            builder.Entity<EvaluationType>(t =>
+            builder.Entity<EvaluationContent>(ec =>
             {
-                t.ToTable("t_evaluationTypes");
-            });
-            builder.Entity<EvaluationState>(s =>
-            {
-                s.ToTable("t_evaluationStates");
+                ec.ToTable("t_evaluationContents");
+                ec.HasOne<EvaluationItem>().WithMany().HasForeignKey(ec => ec.EvaluationId);
+                ec.HasOne<ContentItem>().WithMany().HasForeignKey(ec => ec.ContentId);
+
             });
             builder.Entity<EvaluationValue>(v =>
             {
@@ -71,16 +58,22 @@ namespace Data
                 r.ToTable("t_userRols");
                 r.Property(r => r.Id).ValueGeneratedNever();
             });
-            builder.Entity<Evaluation_Content>(ec =>
+            builder.Entity<BootcampItem>(b =>
             {
-                ec.ToTable("t_evaluationContents");
-                ec.HasOne<EvaluationItem>().WithMany().HasForeignKey(ec => ec.EvaluationId);
+                b.ToTable("t_bootcamps");
+                b.HasOne<UserItem>().WithMany().HasForeignKey(b => b.CreatorId);
             });
-            builder.Entity<Bootcamp_Content>(bc =>
+            builder.Entity<BootcampStudent>(bs =>
             {
-                bc.ToTable("t_bootcampContents");
-                //bc.HasOne<BootcampItem>().WithMany().HasForeignKey(bc => bc.BootcampId);
+                bs.ToTable("t_bootcampStudents");
+                bs.HasOne<BootcampItem>().WithMany().HasForeignKey(bs => bs.BootcampId);
+
             });
+            builder.Entity<SkillsItem>(skills =>
+            {
+                skills.ToTable("t_skills");
+            });
+
             builder.Entity<ContentItem>(c =>
             {
                 c.ToTable("t_contents");

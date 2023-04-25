@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,5 +9,9 @@ namespace Logic.ILogic
 {
     public interface IBootcampLogic
     {
+        int PostBootcamp(BootcampItem bootcamp); 
+        List<BootcampItem> GetAllBootcamp();
+        void UpdateBootcamp(BootcampItem bootcamp);
+        void DeactivateBootcamp(int id);
     }
 }

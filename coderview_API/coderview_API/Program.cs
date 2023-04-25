@@ -56,20 +56,20 @@ builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IFileService, FileService>();
 builder.Services.AddScoped<ISkillsService, SkillsService>();
 builder.Services.AddScoped<IEvaluationService, EvaluationService>();
-builder.Services.AddScoped<IEvaluationTypeService, EvaluationTypeService>();
-builder.Services.AddScoped<IEvaluationStateService, EvaluationStateService>();
+builder.Services.AddScoped<IEvaluationContentService, EvaluationContentService>();
 builder.Services.AddScoped<IContentService, ContentService>();
 builder.Services.AddScoped<IUserSecurityService, UserSecurityService>();
+builder.Services.AddScoped<IBootcampService, BootcampService>();
+builder.Services.AddScoped<IBootcampStudentService, BootcampStudentService>();
 
 //Logic
 builder.Services.AddScoped<IUserLogic, UserLogic>();
 builder.Services.AddScoped<ISkillsLogic,SkillsLogic>();
 builder.Services.AddScoped<IEvaluationLogic, EvaluationLogic>();
-builder.Services.AddScoped<IEvaluationTypeLogic, EvaluationTypeLogic>();
-builder.Services.AddScoped<IEvaluationStateLogic, EvaluationStateLogic>();
+builder.Services.AddScoped<IEvaluationContentLogic, EvaluationContentLogic>();
 builder.Services.AddScoped<IContentLogic, ContentLogic>();
-
-
+builder.Services.AddScoped<IBootcampLogic, BootcampLogic>();
+builder.Services.AddScoped<IBootcampStudentLogic, BootcampStudentLogic>();
 builder.Services.AddScoped<IUserSecurityLogic, UserSecurityLogic>();
 
 builder.Services.AddDbContext<ServiceContext>(

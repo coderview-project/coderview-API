@@ -4,6 +4,7 @@ using Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Data.Migrations
 {
     [DbContext(typeof(ServiceContext))]
-    partial class ServiceContextModelSnapshot : ModelSnapshot
+    [Migration("20230425084745_fixed-relations-structure")]
+    partial class fixedrelationsstructure
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -117,6 +120,8 @@ namespace Data.Migrations
                     b.HasIndex("ContentId");
 
                     b.HasIndex("EvaluationId");
+
+                    b.HasIndex("ValueId");
 
                     b.ToTable("t_evaluationContents", (string)null);
                 });
@@ -331,6 +336,12 @@ namespace Data.Migrations
                     b.HasOne("Entities.EvaluationItem", null)
                         .WithMany()
                         .HasForeignKey("EvaluationId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Entities.EvaluationValue", null)
+                        .WithMany()
+                        .HasForeignKey("ValueId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
