@@ -33,7 +33,7 @@ namespace coderview_API.Controllers
         [EndpointAuthorize(AllowedUserRols = "Administrador, Formador, Coder")]
         [HttpGet(Name = "GetEvaluationById")] 
 
-        public int GetEvaluationById(int id) 
+        public List<EvaluationItem> GetEvaluationById(int id) 
         {
             return _evaluationService.GetEvaluationById(id);
         }

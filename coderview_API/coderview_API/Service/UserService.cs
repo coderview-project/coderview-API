@@ -23,6 +23,11 @@ namespace coderview_API.Service
             return _userLogic.GetAllUsers();
         }
 
+        public List<UserItem> GetUserById(int id)
+        {
+            return _userLogic.GetUserById(id);
+        }
+
         public int PostUser(NewUserRequestModel newUserRequest)
         {
             var newUserItem = newUserRequest.ToUserItem();

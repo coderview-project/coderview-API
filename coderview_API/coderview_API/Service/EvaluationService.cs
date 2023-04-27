@@ -22,7 +22,7 @@ namespace coderview_API.Service
             return _evaluationLogic.GetAllEvaluation();
         }
 
-        public int GetEvaluationById(int id)
+        public List<EvaluationItem> GetEvaluationById(int id)
         {
             return _evaluationLogic.GetEvaluationById(id);
         }

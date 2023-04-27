@@ -46,8 +46,9 @@ namespace Logic.Logic
             }
             catch
             {
-                throw new Exception("¡Vaya! El bootcamp no ha sido registrado correctamente.");
+                throw new Exception();
             }
+           
         }
 
         public void UpdateBootcamp(BootcampItem bootcamp)

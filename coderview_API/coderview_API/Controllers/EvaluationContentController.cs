@@ -1,5 +1,7 @@
-﻿using coderview_API.IService;
+﻿using coderview_API.Attributes;
+using coderview_API.IService;
 using Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace coderview_API.Controllers
@@ -14,6 +16,7 @@ namespace coderview_API.Controllers
             _evaluation_contentService= evaluation_ContentService;
         }
 
+        [EndpointAuthorize(AllowsAnonymous = true)]
         [HttpGet(Name = "GetAllEvaluation_Content")]
 
         public List<EvaluationContent> GetAllEvaluation_Content()
@@ -21,6 +24,7 @@ namespace coderview_API.Controllers
            return _evaluation_contentService.GetAllEvaluationContent();
         }
 
+        [EndpointAuthorize(AllowsAnonymous = true)]
         [HttpPost(Name = "PostEvaluation_Content")]
 
         public int PostEvaluation_Content(EvaluationContent eContent)
@@ -28,6 +32,7 @@ namespace coderview_API.Controllers
             return _evaluation_contentService.PostEvaluationContent(eContent);
         }
 
+        [EndpointAuthorize(AllowsAnonymous = true)]
         [HttpDelete(Name = "DeleteEvaluation_Content")]
 
         public void DeleteEvaluation_Content([FromQuery] int id)

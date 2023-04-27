@@ -36,12 +36,12 @@ namespace Logic.Logic
            return  _serviceContext.Set<EvaluationItem>().Where(e => e.IsActive == true).ToList();
         }
 
-        public int GetEvaluationById(int id)
+        public List<EvaluationItem> GetEvaluationById(int id)
         {
-            var evaluation = _serviceContext.Set<EvaluationItem>().Where(e => e.Id == id).First();
+            var evaluation = _serviceContext.Set<EvaluationItem>().Where(e => e.Id == id).ToList();
             if (evaluation != null)
             {
-                return evaluation.Id;
+                return evaluation;
             } else
             {
                 throw new Exception("No se encontró la evaluación.");

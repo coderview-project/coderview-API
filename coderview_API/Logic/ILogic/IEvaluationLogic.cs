@@ -11,7 +11,7 @@ namespace Logic.ILogic
     {
         int SubmitEvaluation(EvaluationItem evaluationItem);
         List<EvaluationItem> GetAllEvaluation();
-        int GetEvaluationById(int id);
+        List<EvaluationItem> GetEvaluationById(int id);
         List<EvaluationItem> GetEvaluationByUserId(int id);
         List<EvaluationItem> GetAutoevaluacion();
         void DeactivateEvaluation(int id);

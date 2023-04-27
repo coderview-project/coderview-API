@@ -14,5 +14,6 @@ namespace Logic.ILogic
         void UpdateUser(UserItem userItem);
         void DeactivateUser(int id);
         List<UserItem> GetAllUsers();
+        List<UserItem> GetUserById(int id);    
     }
 }

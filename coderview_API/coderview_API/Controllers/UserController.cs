@@ -27,13 +27,14 @@ namespace coderview_API.Controllers
 
         [EndpointAuthorize(AllowsAnonymous = true)]
         [HttpPost(Name = "LoginUser")]
-        public Tuple<string, int> Login([FromBody] LoginRequestModel loginRequest)
+        public Tuple<string, int, int> Login([FromBody] LoginRequestModel loginRequest)
         {
             var userData = _userService.GetAllUsers();
             UserItem user = userData.Where(u => u.UserName == loginRequest.UserName).First();
             int userIdRol = user.UserRolId;
+            int userId = user.Id; 
             string token = _userSecurityService.GenerateAuthorizationToken(loginRequest.UserName, loginRequest.UserPassword);
-            return new Tuple<string, int>(token, userIdRol);
+            return new Tuple<string, int, int>(token, userIdRol, userId);
         }
 
         //[EndpointAuthorize(AllowedUserRols = "Administrador")]
@@ -59,6 +60,14 @@ namespace coderview_API.Controllers
         {
             return _userService.GetAllUsers();
         }
+
+        [EndpointAuthorize(AllowsAnonymous = true)]
+        [HttpGet(Name = "GetUserById")]
+        public List<UserItem> GetUserById([FromQuery]int id)
+        {
+            return _userService.GetUserById(id);
+        }
+
         [EndpointAuthorize(AllowedUserRols = "Administrador, Formador, Coder")]
         [HttpPatch(Name = "ModifyUser")]
         public void Patch([FromBody] PatchUserRequestModel patchUserRequestModel)

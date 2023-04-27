@@ -73,5 +73,11 @@ namespace Logic.Logic
 
             _serviceContext.SaveChanges();
         }
+
+        public List<UserItem> GetUserById(int id)
+        {
+            var user = _serviceContext.Set<UserItem>().Where(u => u.Id == id).ToList(); 
+            return user;
+        }
     }
 }
