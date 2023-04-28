@@ -36,7 +36,7 @@ namespace Logic.Logic
             return _serviceContext.Set<BootcampItem>().Where(b => b.IsActive == true).ToList();
         }
 
-        public int PostBootcamp(BootcampItem bootcamp)
+        public int AddBootcamp(BootcampItem bootcamp)
         {
             try
             {

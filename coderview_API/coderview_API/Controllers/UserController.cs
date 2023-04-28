@@ -39,18 +39,18 @@ namespace coderview_API.Controllers
         //[EndpointAuthorize(AllowedUserRols = "Administrador")]
         [EndpointAuthorize(AllowsAnonymous = true)]
         [HttpPost(Name = "PostUser")]
-        public int PostUser(NewUserRequestModel newUserRequest)
+        public int AddUser(NewUserRequestModel newUserRequest)
         {
 
-            return _userService.PostUser(newUserRequest);
+            return _userService.AddUser(newUserRequest);
         }
 
         [EndpointAuthorize(AllowsAnonymous = true)]
         [HttpPost(Name = "PostInstructor")]
-        public int PostInstructor(NewInstructorRequestModel newInstructorRequest)
+        public int AddInstructor(NewInstructorRequestModel newInstructorRequest)
         {
 
-            return _userService.PostInstructor(newInstructorRequest);
+            return _userService.AddInstructor(newInstructorRequest);
         }
 
         [EndpointAuthorize(AllowedUserRols = "Administrador, Formador")]

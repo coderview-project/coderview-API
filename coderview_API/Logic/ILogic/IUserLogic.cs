@@ -9,8 +9,8 @@ namespace Logic.ILogic
 {
     public interface IUserLogic
     {
-        int PostUser(UserItem userItem);
-        int PostInstructor(UserItem userItem);
+        int AddUser(UserItem userItem);
+        int AddInstructor(UserItem userItem);
         void UpdateUser(UserItem userItem);
         void DeactivateUser(int id);
         List<UserItem> GetAllUsers();

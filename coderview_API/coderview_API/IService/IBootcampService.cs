@@ -4,7 +4,7 @@ namespace coderview_API.IService
 {
     public interface IBootcampService
     {
-        int PostBootcamp(BootcampItem bootcamp);
+        int AddBootcamp(BootcampItem bootcamp);
         List<BootcampItem> GetAllBootcamp();
         void UpdateBootcamp(BootcampItem bootcamp);
         void DeactivateBootcamp(int id);

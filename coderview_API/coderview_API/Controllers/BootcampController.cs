@@ -16,9 +16,9 @@ namespace coderview_API.Controllers
         }
 
         [HttpPost(Name = "PostBootcamp")]
-        public int PostBootcamp([FromBody] BootcampItem bootcamp)
+        public int AddBootcamp([FromBody] BootcampItem bootcamp)
         {
-            return _bootcampService.PostBootcamp(bootcamp);
+            return _bootcampService.AddBootcamp(bootcamp);
         }
 
         [HttpGet(Name = "GetAllBootcamp")]

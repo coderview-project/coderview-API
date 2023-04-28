@@ -26,25 +26,22 @@ namespace Logic.Logic
                 .Where(u => u.IsActive == true)
                 .ToList();
         }
-
-        public int PostUser(UserItem userItem)
+        public int AddUser(UserItem userItem)
         {
-            
-            
             if (userItem.UserRolId == (int)UserEnums.Administrador)
-                {
-                    throw new InvalidOperationException();
-                };
+            {
+                throw new InvalidOperationException();
+            };
 
             userItem.EncryptedToken = "NOT GENERATED";
 
             _serviceContext.Users.Add(userItem);
             _serviceContext.SaveChanges();
-            
+
             return userItem.Id;
         }
 
-        public int PostInstructor(UserItem userItem)
+        public int AddInstructor(UserItem userItem)
         {
             if (userItem.UserRolId == (int)UserEnums.Administrador)
             {
@@ -73,5 +70,7 @@ namespace Logic.Logic
 
             _serviceContext.SaveChanges();
         }
+
+        
     }
 }
