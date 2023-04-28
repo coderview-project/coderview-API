@@ -37,10 +37,10 @@ namespace coderview_API.Service
             return _evaluationLogic.GetAutoevaluacion();
          }
 
-        public int SubmitEvaluation(EvaluationItem evaluationItem)
-        {
-            return _evaluationLogic.SubmitEvaluation(evaluationItem);
-        }
+        //public int SubmitEvaluation(EvaluationItem evaluationItem)
+        //{
+        //    return _evaluationLogic.SubmitEvaluation(evaluationItem);
+        //}
 
         
     }

@@ -15,12 +15,12 @@ namespace coderview_API.Controllers
             _evaluationService = evaluationService;
         }
 
-        [EndpointAuthorize(AllowedUserRols = "Coder")]
-        [HttpPost(Name = "SubmitEvaluation")]
-        public int SubmitEvaluation (EvaluationItem evaluationItem) 
-        {
-            return _evaluationService.SubmitEvaluation(evaluationItem);
-        }
+        //[EndpointAuthorize(AllowedUserRols = "Coder")]
+        //[HttpPost(Name = "SubmitEvaluation")]
+        //public int SubmitEvaluation (EvaluationItem evaluationItem) 
+        //{
+        //    return _evaluationService.SubmitEvaluation(evaluationItem);
+        //}
 
         [EndpointAuthorize(AllowedUserRols = "Administrador, Formador")]
         [HttpGet(Name = "GetAllEvaluation")]

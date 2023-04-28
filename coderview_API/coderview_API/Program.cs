@@ -61,6 +61,7 @@ builder.Services.AddScoped<IContentService, ContentService>();
 builder.Services.AddScoped<IUserSecurityService, UserSecurityService>();
 builder.Services.AddScoped<IBootcampService, BootcampService>();
 builder.Services.AddScoped<IBootcampStudentService, BootcampStudentService>();
+builder.Services.AddScoped<IEvaluationDataService, EvaluationDataService>();
 
 //Logic
 builder.Services.AddScoped<IUserLogic, UserLogic>();
@@ -71,6 +72,7 @@ builder.Services.AddScoped<IContentLogic, ContentLogic>();
 builder.Services.AddScoped<IBootcampLogic, BootcampLogic>();
 builder.Services.AddScoped<IBootcampStudentLogic, BootcampStudentLogic>();
 builder.Services.AddScoped<IUserSecurityLogic, UserSecurityLogic>();
+builder.Services.AddScoped<IEvaluationDataLogic, EvaluationDataLogic>();
 
 builder.Services.AddDbContext<ServiceContext>(
         options => options.UseSqlServer("name=ConnectionStrings:ServiceContext"));

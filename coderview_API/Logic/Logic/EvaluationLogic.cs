@@ -73,18 +73,18 @@ namespace Logic.Logic
             }
         }
 
-        public int SubmitEvaluation(EvaluationItem evaluationItem)
-        {
-            try
-            {
-                _serviceContext.Evaluations.Add(evaluationItem);
-                _serviceContext.SaveChanges();
-                return evaluationItem.Id;
-            } catch
-            {
-                throw new Exception("¡Vaya! La evaluación no ha sido registrada correctamente.");
-            }
+        //public int SubmitEvaluation(EvaluationItem evaluationItem)
+        //{
+        //    try
+        //    {
+        //        _serviceContext.Evaluations.Add(evaluationItem);
+        //        _serviceContext.SaveChanges();
+        //        return evaluationItem.Id;
+        //    } catch
+        //    {
+        //        throw new Exception("¡Vaya! La evaluación no ha sido registrada correctamente.");
+        //    }
             
-        }
+        //}
     }
 }

@@ -1,6 +1,8 @@
-﻿using coderview_API.IService;
+﻿using coderview_API.Attributes;
+using coderview_API.IService;
 using coderview_API.Models;
 using Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace coderview_API.Controllers
@@ -17,23 +19,28 @@ namespace coderview_API.Controllers
             _skillsService = skillsService;
         }
 
+        [EndpointAuthorize(AllowsAnonymous = true)]
         [HttpPost(Name = "PostSkills")]
-        public int PostSkills(SkillsItem skill)
+        public int PostSkills([FromBody] SkillsItem skill)
         {
             return _skillsService.PostSkills(skill);
         }
 
+        [EndpointAuthorize(AllowsAnonymous = true)]
         [HttpGet(Name = "GetAllSkills")]
         public List<SkillsItem> GetAllSkills()
         {
             return _skillsService.GetAllSkills();
         }
 
+        [EndpointAuthorize(AllowsAnonymous = true)]
         [HttpPatch(Name = "ModifySkills")]
         public void UpdateSkills([FromBody] SkillsItem skill)
         {
             _skillsService.UpdateSkills(skill);  
         }
+
+        [EndpointAuthorize(AllowsAnonymous = true)]
         [HttpDelete(Name ="DeactivateSkills")]
         public void DeactivateSkills([FromQuery]int id)
         {

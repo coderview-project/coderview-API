@@ -23,6 +23,7 @@ namespace Data
         public DbSet<EvaluationContent> EvaluationContents { get; set; }
         public DbSet<SkillsItem> Skills { get; set; }
         public DbSet<ContentItem> Contents { get; set; }
+        public DbSet<EvaluationData> EvaluationDatas { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -79,7 +80,10 @@ namespace Data
                 c.ToTable("t_contents");
                 c.HasOne<SkillsItem>().WithMany().HasForeignKey(c => c.SkillId);
             });
-
+            builder.Entity<EvaluationData>(ed =>
+            {
+                ed.ToTable("t_evaluationDatas");
+            });
         }
     }
     public class ServiceContextFactory : IDesignTimeDbContextFactory<ServiceContext>

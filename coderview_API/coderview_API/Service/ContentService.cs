@@ -22,8 +22,8 @@ namespace coderview_API.Service
 
         public int PostContent(ContentItem contentItem)
         {
-            _contentLogic.PostContent(contentItem);
-            return contentItem.Id;
+           return _contentLogic.PostContent(contentItem);
+            
         }
 
         public void UpdateContent(ContentItem contentItem)

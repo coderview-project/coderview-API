@@ -47,7 +47,7 @@ namespace coderview_API.Controllers
 
         [EndpointAuthorize(AllowsAnonymous = true)]
         [HttpPost(Name = "PostContent")]
-        public int PostContent([FromForm] ContentItem contentItem)
+        public int PostContent([FromBody] ContentItem contentItem)
         {            
            return _contentService.PostContent(contentItem);
             

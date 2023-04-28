@@ -9,7 +9,7 @@ namespace Logic.ILogic
 {
     public interface IEvaluationLogic
     {
-        int SubmitEvaluation(EvaluationItem evaluationItem);
+        //int SubmitEvaluation(EvaluationItem evaluationItem);
         List<EvaluationItem> GetAllEvaluation();
         List<EvaluationItem> GetEvaluationById(int id);
         List<EvaluationItem> GetEvaluationByUserId(int id);

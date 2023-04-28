@@ -28,6 +28,8 @@ namespace Logic.Logic
         }
         public int PostSkills(SkillsItem skill)
         {
+            _serviceContext.Skills.Add(skill);
+            _serviceContext.SaveChanges();
            return skill.Id;
         }
         public void UpdateSkills(SkillsItem skill)
@@ -39,7 +41,7 @@ namespace Logic.Logic
         public void DeactivateSkills(int id)
         {
             var skillToDeactivate = _serviceContext.Set<SkillsItem>()
-                .Where(u => u.Id == id).First();
+                .Where(u => u.Id == id).FirstOrDefault();
 
             skillToDeactivate.IsActive = false;
 
