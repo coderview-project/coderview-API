@@ -37,7 +37,7 @@ namespace coderview_API.Service
         // Creamos una nueva clase y Validamos elementos de la clase  BootcampItem
         public int AddUBootcamp(BootcampItem bootcampItem)
         {
-            //var bootcamp = bootcampItem.Tobootcamp);
+            //var bootcamp = bootcampItem.Tobootcamp;
 
             if (!ValidateBootcamp(bootcampItem))
             {

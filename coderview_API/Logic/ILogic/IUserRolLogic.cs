@@ -11,7 +11,7 @@ namespace Logic.ILogic
     public interface IUserRolLogic
     {
         List<UserRol> GetAllUserRol();
-        int PostUserRol(UserRol rol);
+        int AddUserRol(UserRol rol);
         void DeactivateUserRol(int id);
     }
 }

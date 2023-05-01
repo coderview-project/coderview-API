@@ -25,9 +25,9 @@ namespace coderview_API.Controllers
         //[EndpointAuthorize(AllowedUserRols = "Administrador")]
         [EndpointAuthorize(AllowsAnonymous = true)]
         [HttpPost(Name = "PostUserRol")]
-        public int PostUserRol(UserRol rol)
+        public int AddUserRol(UserRol rol)
         {
-            return _userRolService.PostUserRol(rol);
+            return _userRolService.AddUserRol(rol);
         }
 
         [EndpointAuthorize(AllowedUserRols = "Administrador")]

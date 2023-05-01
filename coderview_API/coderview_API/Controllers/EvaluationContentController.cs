@@ -23,9 +23,9 @@ namespace coderview_API.Controllers
 
         [HttpPost(Name = "PostEvaluation_Content")]
 
-        public int PostEvaluation_Content(EvaluationContent eContent)
+        public int AddEvaluation_Content(EvaluationContent eContent)
         {
-            return _evaluation_contentService.PostEvaluationContent(eContent);
+            return _evaluation_contentService.AddEvaluationContent(eContent);
         }
 
         [HttpDelete(Name = "DeleteEvaluation_Content")]

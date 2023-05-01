@@ -20,9 +20,9 @@ namespace coderview_API.Service
         {
             return _skillsLogic.GetAllSkills();
         }
-        int ISkillsService.PostSkills(SkillsItem skill) 
+        int ISkillsService.AddSkills(SkillsItem skill) 
         {
-            _skillsLogic.PostSkills(skill);
+            _skillsLogic.AddSkills(skill);
             return skill.Id;
         }
         public void UpdateSkills(SkillsItem skill)

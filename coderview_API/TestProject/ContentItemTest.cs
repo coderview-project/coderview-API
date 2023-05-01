@@ -23,8 +23,7 @@ namespace TestProject
 
             var conetentB = new ContentItem();
             conetentB.Id = 2;
-            conetentB.Title = "Test";
-            conetentB.SkillId = 2;
+            conetentB.Title = "";
 
 
             var conetentC = new ContentItem();
@@ -40,7 +39,7 @@ namespace TestProject
             //Assert
 
             Assert.AreEqual(true, isValidA,"" );
-            Assert.AreEqual(true, isValidB, "");
+            Assert.AreEqual(false, isValidB, "");
             Assert.AreEqual(true, isValidC, "");
 
         }

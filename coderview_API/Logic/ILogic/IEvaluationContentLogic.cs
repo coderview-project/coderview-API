@@ -9,7 +9,7 @@ namespace Logic.ILogic
 {
     public interface IEvaluationContentLogic
     {
-        int PostEvaluationContent(EvaluationContent econtent);
+        int AddEvaluationContent(EvaluationContent econtent);
         List<EvaluationContent> GetAllEvaluationContent();
         void DeleteEvaluationContent(int id); 
     }

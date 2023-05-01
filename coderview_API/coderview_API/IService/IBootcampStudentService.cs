@@ -4,7 +4,7 @@ namespace coderview_API.IService
 {
     public interface IBootcampStudentService
     {
-        int PostBootcampStudent(BootcampStudent bootcampStudent);
+        int AddBootcampStudent(BootcampStudent bootcampStudent);
         List<BootcampStudent> GetAllBootcampStudent();
         void DeleteBootcampStudent(int id);
     }

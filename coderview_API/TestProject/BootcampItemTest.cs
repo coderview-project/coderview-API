@@ -18,21 +18,21 @@ namespace TestProject
             var bootcampA = new BootcampItem();
             bootcampA.Id = 3;
             bootcampA.CreatorId = 4;
-            bootcampA.StartDate = DateTime.Now;
+            bootcampA.StartDate = DateTime.Now.AddDays(-1);
             bootcampA.EndDate = DateTime.Now.AddDays(-1);
 
 
             var bootcampB = new BootcampItem();
             bootcampB.Id = 5;
             bootcampB.CreatorId = 6;
-            bootcampB.StartDate = DateTime.Now;
+            bootcampB.StartDate = DateTime.Now.AddDays(-1);
             bootcampB.EndDate = DateTime.Now.AddDays(-1);
 
             var bootcampC = new BootcampItem();
             bootcampC.Id = 8;
-            bootcampC.CreatorId = 9;
-            bootcampC.StartDate = DateTime.Now;
-            bootcampC.EndDate = DateTime.Now.AddDays(28/04/2023);
+            bootcampC.CreatorId = 6;
+            bootcampC.StartDate = DateTime.Now.AddDays(01/05/2023);
+            bootcampC.EndDate = DateTime.Now.AddDays(30/09/2023);
 
 
             //Act

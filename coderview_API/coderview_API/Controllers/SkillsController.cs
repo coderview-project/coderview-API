@@ -18,9 +18,9 @@ namespace coderview_API.Controllers
         }
 
         [HttpPost(Name = "PostSkills")]
-        public int PostSkills(SkillsItem skill)
+        public int AddSkills(SkillsItem skill)
         {
-            return _skillsService.PostSkills(skill);
+            return _skillsService.AddSkills(skill);
         }
 
         [HttpGet(Name = "GetAllSkills")]

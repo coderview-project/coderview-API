@@ -5,7 +5,7 @@ namespace coderview_API.IService
 {
     public interface IFileService
     {
-        int PostFile(FileItem fileItem);
+        int AddFile(FileItem fileItem);
         void DeleteFile(int id);
         FileItem GetFileById(int id);
         List<FileItem> GetAllFilesList();

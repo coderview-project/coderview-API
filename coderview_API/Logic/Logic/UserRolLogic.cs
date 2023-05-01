@@ -36,7 +36,7 @@ namespace Logic.Logic
             return _serviceContext.Set<UserRol>().ToList();
         }
 
-        public int PostUserRol(UserRol rol)
+        public int AddUserRol(UserRol rol)
         {
             try
             {

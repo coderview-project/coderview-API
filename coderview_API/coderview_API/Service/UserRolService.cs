@@ -22,9 +22,9 @@ namespace coderview_API.Service
             return _userRolLogic.GetAllUserRol();
         }
 
-        public int PostUserRol(UserRol rol)
+        public int AddUserRol(UserRol rol)
         {
-            return _userRolLogic.PostUserRol(rol);
+            return _userRolLogic.AddUserRol(rol);
         }
     }
 }

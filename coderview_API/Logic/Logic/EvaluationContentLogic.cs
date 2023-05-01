@@ -29,7 +29,7 @@ namespace Logic.Logic
             }
         }
 
-        public int PostEvaluationContent(EvaluationContent econtent)
+        public int AddEvaluationContent(EvaluationContent econtent)
         {
             try
             {
