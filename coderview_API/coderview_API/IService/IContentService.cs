@@ -7,7 +7,7 @@ namespace coderview_API.IService
     {
         void DeactivateContent(int id);
         List<ContentItem> GetAllContent();
-        int PostContent(ContentItem contentItem);
+        int AddContent(ContentItem contentItem);
         void UpdateContent(ContentItem contentItem);
     }
 }

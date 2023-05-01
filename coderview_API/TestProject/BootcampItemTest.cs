@@ -20,8 +20,8 @@ namespace TestProject
             bootcampA.CreatorId = 4;
             bootcampA.StartDate = DateTime.Now;
             bootcampA.EndDate = DateTime.Now.AddDays(-1);
-           
-            
+
+
             var bootcampB = new BootcampItem();
             bootcampB.Id = 5;
             bootcampB.CreatorId = 6;
@@ -32,23 +32,20 @@ namespace TestProject
             bootcampC.Id = 8;
             bootcampC.CreatorId = 9;
             bootcampC.StartDate = DateTime.Now;
-            bootcampC.EndDate = DateTime.Now.AddDays(-1);
+            bootcampC.EndDate = DateTime.Now.AddDays(28/04/2023);
 
 
             //Act
             var isValidA = BootcampService.ValidateBootcamp(bootcampA);
             var isValidB = BootcampService.ValidateBootcamp(bootcampB);
-            var IsValidC = BootcampService.ValidateBootcamp(bootcampC);
+            var isValidC = BootcampService.ValidateBootcamp(bootcampC);
           
 
             //Assert        
 
-            Assert.AreEqual(true, isValidA, "¡Vaya! El bootcamp no ha sido registrado correctamente");
-            Assert.AreEqual(true, isValidB, "¡Estas campo no acepta string");
-            Assert.AreEqual(true, IsValidC, "¡Estas campo esta vacio");
-
-
-
+            Assert.AreEqual(false, isValidA, "¡Vaya! El bootcamp no ha sido registrado correctamente");
+            Assert.AreEqual(false, isValidB, "¡Estas campo no acepta string");
+            Assert.AreEqual(false, isValidC, "¡Estas campo esta vacio");
 
 
 

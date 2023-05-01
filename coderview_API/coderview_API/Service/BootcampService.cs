@@ -65,11 +65,11 @@ namespace coderview_API.Service
                 return false;
             }
 
-            if (bootcampItem.StartDate > DateTime.Now /*|| *//*bootcampItem.StartDate == "" || bootcampItem.StartDate.string == ""*/)
+            if (bootcampItem.StartDate > DateTime.Now || bootcampItem.StartDate == null /*|| bootcampItem.StartDate. == ""*/)
             {
                 return false;
             }
-            if (bootcampItem.EndDate < DateTime.Now)
+            if (bootcampItem.EndDate < DateTime.Now || bootcampItem.EndDate == null /*|| bootcampItem.EndDate. == ""*/)
             {
                 return false;
             }

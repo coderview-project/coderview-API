@@ -20,7 +20,6 @@ namespace TestProject
             userA.InsertDate = DateTime.Now.AddDays(-1);
             //userA.UpdateDate = DateTime.Now;
 
-
             var userB = new UserItem();
             userB.Id = 3;
             userB.UserName = "Diana";

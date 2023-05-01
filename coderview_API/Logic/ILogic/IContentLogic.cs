@@ -9,7 +9,7 @@ namespace Logic.ILogic
 {
     public interface IContentLogic
     {
-        int PostContent(ContentItem contentItem);
+        int AddContent(ContentItem contentItem);
         void DeactivateContent(int id);
         List<ContentItem> GetAllContent();
         void UpdateContent(ContentItem contentItem);

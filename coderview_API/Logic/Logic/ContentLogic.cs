@@ -36,7 +36,7 @@ namespace Logic.Logic
             return _serviceContext.Set<ContentItem>().Where(c => c.IsActive == true).ToList();
         }
 
-        public int PostContent(ContentItem contentItem)
+        public int AddContent(ContentItem contentItem)
         {
             try
             {

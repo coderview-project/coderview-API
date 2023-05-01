@@ -42,9 +42,9 @@ namespace coderview_API.Controllers
         }
 
         [HttpPost(Name = "PostContent")]
-        public int PostContent([FromForm] ContentItem contentItem)
+        public int AddContent([FromForm] ContentItem contentItem)
         {            
-           return _contentService.PostContent(contentItem);
+           return _contentService.AddContent(contentItem);
             
         }
     }
