@@ -31,5 +31,13 @@ namespace coderview_API.Controllers
         {
             return _evaluationDataService.GetEvaluationData();
         }
+
+        [EndpointAuthorize(AllowsAnonymous = true)]
+        [HttpGet(Name = "GetSelectedEvaluationData")]
+
+        public List<EvaluationData> GetSelectedEvaluationData([FromQuery] int id)
+        {
+            return _evaluationDataService.GetSelectedEvaluationData(id);
+        }
     }
 }

@@ -20,5 +20,10 @@ namespace coderview_API.Service
         {
             return _evaluationDataLogic.GetEvaluationData();
         }
+
+        public List<EvaluationData> GetSelectedEvaluationData(int id)
+        {
+            return _evaluationDataLogic.GetSelectedEvaluationData(id);
+        }
     }
 }

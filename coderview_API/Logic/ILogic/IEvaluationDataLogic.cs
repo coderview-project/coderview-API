@@ -11,5 +11,6 @@ namespace Logic.ILogic
     {
         int SubmitEvaluation(EvaluationData data);
         List<EvaluationData> GetEvaluationData();
+        List<EvaluationData> GetSelectedEvaluationData(int id);
     }
 }

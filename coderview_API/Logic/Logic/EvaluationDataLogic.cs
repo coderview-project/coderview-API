@@ -28,5 +28,12 @@ namespace Logic.Logic
         {
             return _serviceContext.Set<EvaluationData>().ToList();
         }
+
+        public List<EvaluationData> GetSelectedEvaluationData(int id)
+        {
+            var selectedEvaluation = _serviceContext.Set<EvaluationData>().Where(e => e.EvaluatorId == id).ToList();
+            return selectedEvaluation;
+
+        }
     }
 }
