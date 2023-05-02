@@ -30,9 +30,9 @@ namespace coderview_API.Controllers
         }
 
         [HttpPost(Name = "PostBootcampStudent")]
-        public int PostBootcampStudent([FromBody] BootcampStudent bootcampStudent)
+        public int AddBootcampStudent([FromBody] BootcampStudent bootcampStudent)
         {
-            return _bootcampStudentService.PostBootcampStudent(bootcampStudent);
+            return _bootcampStudentService.AddBootcampStudent(bootcampStudent);
         }
 
     }

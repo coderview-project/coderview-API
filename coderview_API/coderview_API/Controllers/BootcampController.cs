@@ -19,9 +19,9 @@ namespace coderview_API.Controllers
 
         [EndpointAuthorize(AllowsAnonymous = true)]
         [HttpPost(Name = "PostBootcamp")]
-        public int PostBootcamp([FromBody] BootcampItem bootcamp)
+        public int AddBootcamp([FromBody] BootcampItem bootcamp)
         {
-            return _bootcampService.PostBootcamp(bootcamp);
+            return _bootcampService.AddBootcamp(bootcamp);
         }
 
         [EndpointAuthorize(AllowsAnonymous = true)]

@@ -23,9 +23,9 @@ namespace coderview_API.Service
             return _bootcampStudentLogic.GetAllBootcampStudent();
         }
 
-        public int PostBootcampStudent(BootcampStudent bootcampStudent)
+        public int AddBootcampStudent(BootcampStudent bootcampStudent)
         {
-            return _bootcampStudentLogic.PostBootcampStudent(bootcampStudent);
+            return _bootcampStudentLogic.AddBootcampStudent(bootcampStudent);
         }
     }
 }

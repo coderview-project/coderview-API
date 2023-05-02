@@ -17,9 +17,9 @@ namespace coderview_API.Service
             return _evaluation_ContentLogic.GetAllEvaluationContent();
         }
 
-        public int PostEvaluationContent(EvaluationContent eContent)
+        public int AddEvaluationContent(EvaluationContent eContent)
         {
-            return _evaluation_ContentLogic.PostEvaluationContent(eContent);
+            return _evaluation_ContentLogic.AddEvaluationContent(eContent);
         }
 
         public void DeleteEvaluationContent(int id)

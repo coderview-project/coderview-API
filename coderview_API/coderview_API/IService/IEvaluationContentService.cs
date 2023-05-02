@@ -4,7 +4,7 @@ namespace coderview_API.IService
 {
     public interface IEvaluationContentService
     {
-        int PostEvaluationContent(EvaluationContent eContent);
+        int AddEvaluationContent(EvaluationContent eContent);
         List<EvaluationContent> GetAllEvaluationContent();
         void DeleteEvaluationContent(int id);
     }

@@ -22,7 +22,7 @@ namespace coderview_API.Controllers
 
         [EndpointAuthorize(AllowedUserRols = "Administrador, Formador, Coder")]
         [HttpPost(Name = "PostFile")]
-        public int PostFile([FromForm] FileUploadModel fileUploadModel)
+        public int AddFile([FromForm] FileUploadModel fileUploadModel)
         {
             try
             {
@@ -39,7 +39,7 @@ namespace coderview_API.Controllers
                     fileItem.Content = stream.ToArray();
                 }
 
-                return _fileService.PostFile(fileItem);
+                return _fileService.AddFile(fileItem);
             }
             catch (Exception)
             {

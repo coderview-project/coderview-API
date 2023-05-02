@@ -21,9 +21,9 @@ namespace coderview_API.Controllers
 
         [EndpointAuthorize(AllowsAnonymous = true)]
         [HttpPost(Name = "PostSkills")]
-        public int PostSkills([FromBody] SkillsItem skill)
+        public int AddSkills(SkillsItem skill)
         {
-            return _skillsService.PostSkills(skill);
+            return _skillsService.AddSkills(skill);
         }
 
         [EndpointAuthorize(AllowsAnonymous = true)]

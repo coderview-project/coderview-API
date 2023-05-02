@@ -28,7 +28,7 @@ namespace Logic.Logic
             return _serviceContext.Set<BootcampStudent>().ToList();
         }
 
-        public int PostBootcampStudent(BootcampStudent bootcampStudent)
+        public int AddBootcampStudent(BootcampStudent bootcampStudent)
         {
             _serviceContext.BootCampStudents.Add(bootcampStudent);
             _serviceContext.SaveChanges();

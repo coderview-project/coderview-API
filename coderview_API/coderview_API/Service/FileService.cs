@@ -37,7 +37,7 @@ namespace coderview_API.Service
             }
         }
 
-        public int PostFile(FileItem fileItem)
+        public int AddFile(FileItem fileItem)
         {
             try
             {

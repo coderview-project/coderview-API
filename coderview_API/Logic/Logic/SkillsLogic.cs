@@ -26,7 +26,7 @@ namespace Logic.Logic
                 .ToList();
 
         }
-        public int PostSkills(SkillsItem skill)
+        public int AddSkills(SkillsItem skill)
         {
             _serviceContext.Skills.Add(skill);
             _serviceContext.SaveChanges();

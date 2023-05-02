@@ -9,7 +9,7 @@ namespace Logic.ILogic
 {
     public interface IBootcampLogic
     {
-        int PostBootcamp(BootcampItem bootcamp); 
+        int AddBootcamp(BootcampItem bootcamp); 
         List<BootcampItem> GetAllBootcamp();
         void UpdateBootcamp(BootcampItem bootcamp);
         void DeactivateBootcamp(int id);
