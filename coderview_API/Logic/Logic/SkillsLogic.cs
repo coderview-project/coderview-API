@@ -30,7 +30,7 @@ namespace Logic.Logic
         {
             _serviceContext.Skills.Add(skill);
             _serviceContext.SaveChanges();
-           return skill.Id;
+            return skill.Id;
         }
         public void UpdateSkills(SkillsItem skill)
         {
@@ -48,7 +48,6 @@ namespace Logic.Logic
             _serviceContext.SaveChanges();
 
         }
-
-        
+  
     }
 }

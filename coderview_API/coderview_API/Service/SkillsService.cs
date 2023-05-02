@@ -20,16 +20,16 @@ namespace coderview_API.Service
         {
             return _skillsLogic.GetAllSkills();
         }
-        public int PostSkills(SkillsItem skill) 
+        public int AddSkills(SkillsItem skill) 
         {
-            return _skillsLogic.PostSkills(skill);
+            return _skillsLogic.AddSkills(skill);
             
         }
         public void UpdateSkills(SkillsItem skill)
         {
             _skillsLogic.UpdateSkills(skill);
         }
-        void ISkillsService.DeactivateSkills(int id)
+        public void DeactivateSkills(int id)
         { 
             _skillsLogic.DeactivateSkills(id); 
         }

@@ -28,7 +28,7 @@ namespace coderview_API.Service
             return _userLogic.GetUserById(id);
         }
 
-        public int PostUser(NewUserRequestModel newUserRequest)
+        public int AddUser(NewUserRequestModel newUserRequest)
         {
             var newUserItem = newUserRequest.ToUserItem();
             newUserItem.EncryptedPassword = _userSecurityLogic.HashString(newUserRequest.Password);

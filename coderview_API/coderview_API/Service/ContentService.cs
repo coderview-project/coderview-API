@@ -24,7 +24,7 @@ namespace coderview_API.Service
 
         public int AddContente(ContentItem contentItem)
         {
-           return _contentLogic.PostContent(contentItem);
+           return _contentLogic.AddContent(contentItem);
             
         }
 

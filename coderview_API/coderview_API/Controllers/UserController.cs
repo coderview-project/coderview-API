@@ -82,7 +82,7 @@ namespace coderview_API.Controllers
                 fileItem.UpdateDate = DateTime.Now;
                 fileItem.Content = Convert.FromBase64String(patchUserRequestModel.FileData.Base64FileContent);
 
-                var fileId = _fileService.PostFile(fileItem);
+                var fileId = _fileService.AddFile(fileItem);
 
                 var userItem = new UserItem();
                 userItem.UserName = patchUserRequestModel.UserData.UserName;
