@@ -55,7 +55,7 @@ namespace coderview_API.Service
         public int AddUserFromRequestModel(NewUserRequestModel requestModel)
         {
             var newUserItem = requestModel.ToUserItem();
-            //var newUserItem = new UserItem();
+           
             if (!ValidateUser(newUserItem))
             {
                 throw new InvalidDataException();

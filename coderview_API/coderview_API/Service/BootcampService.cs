@@ -60,16 +60,16 @@ namespace coderview_API.Service
             {
                 return false;
             }
-            if (bootcampItem.CreatorId == null )
+            if (bootcampItem.CreatorId > 0)
             {
                 return false;
             }
 
-            if (bootcampItem.StartDate > DateTime.Now || bootcampItem.StartDate == null /*|| bootcampItem.StartDate. == ""*/)
+            if (bootcampItem.StartDate > DateTime.Now)
             {
                 return false;
             }
-            if (bootcampItem.EndDate < DateTime.Now || bootcampItem.EndDate == null /*|| bootcampItem.EndDate. == ""*/)
+            if (bootcampItem.EndDate < DateTime.Now )
             {
                 return false;
             }

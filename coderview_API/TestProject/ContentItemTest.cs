@@ -24,7 +24,7 @@ namespace TestProject
             var conetentB = new ContentItem();
             conetentB.Id = 2;
             conetentB.Title = "";
-
+            conetentB.SkillId = 1;
 
             var conetentC = new ContentItem();
             conetentC.Id = 3;

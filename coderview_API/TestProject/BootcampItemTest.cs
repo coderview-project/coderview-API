@@ -30,9 +30,9 @@ namespace TestProject
 
             var bootcampC = new BootcampItem();
             bootcampC.Id = 8;
-            bootcampC.CreatorId = 6;
-            bootcampC.StartDate = DateTime.Now.AddDays(01/05/2023);
-            bootcampC.EndDate = DateTime.Now.AddDays(30/09/2023);
+            bootcampC.CreatorId = -1;
+            bootcampC.StartDate = DateTime.Now.AddDays(10);
+            bootcampC.EndDate = DateTime.Now.AddDays(-100);
 
 
             //Act
