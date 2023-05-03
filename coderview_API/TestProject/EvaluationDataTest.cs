@@ -16,65 +16,65 @@ namespace TestProject
         public void ValidateEvaluationDataTest()
         {
             //Arrange
-            var DataA = new EvaluationData();
-            DataA.Id = 1;
-            DataA.ProjectM = 5;
-            DataA.FuncTech1 = 5;
-            DataA.FuncTech2 = 4;
-            DataA.FuncTech3 = 6;
-            DataA.Front1 = 3;
-            DataA.Front2 = 4;
-            DataA.Back1 = 4;
-            DataA.Back2 = 5;
-            DataA.Archit = 3;
-            DataA.Qa1 = 3;
-            DataA.Qa2 = 5;
-            DataA.Qa3 = 6;
-            DataA.EvaluatorId = 5;
-            DataA.EvaluateeId = 5;
-            DataA.EvaluationId = 3;
+            var evaluationDataA = new EvaluationData();
+            evaluationDataA.Id = 1;
+            evaluationDataA.ProjectM = 5;
+            evaluationDataA.FuncTech1 = 5;
+            evaluationDataA.FuncTech2 = 4;
+            evaluationDataA.FuncTech3 = 6;
+            evaluationDataA.Front1 = 3;
+            evaluationDataA.Front2 = 4;
+            evaluationDataA.Back1 = 4;
+            evaluationDataA.Back2 = 5;
+            evaluationDataA.Archit = 3;
+            evaluationDataA.Qa1 = 3;
+            evaluationDataA.Qa2 = 5;
+            evaluationDataA.Qa3 = 6;
+            evaluationDataA.EvaluatorId = 5;
+            evaluationDataA.EvaluateeId = 5;
+            evaluationDataA.EvaluationId = 3;
 
-            var DataB = new EvaluationData();
-            DataB.Id = 2;
-            DataB.ProjectM = 4;
-            DataB.FuncTech1 =4;
-            DataB.FuncTech2 = 3;
-            DataB.FuncTech3 = 6;
-            DataB.Front1 = 5;
-            DataB.Front2 = 6;
-            DataB.Back1 = 3;
-            DataB.Back2 = 4;
-            DataB.Archit = 3;
-            DataB.Qa1 = 5;
-            DataB.Qa2 = 6;
-            DataB.Qa3 = 4;
-            DataB.EvaluatorId = 6;
-            DataB.EvaluateeId = 5;
-            DataB.EvaluationId = 4;
+            var evaluationDataB = new EvaluationData();
+            evaluationDataB.Id = 2;
+            evaluationDataB.ProjectM = 4;
+            evaluationDataB.FuncTech1 =4;
+            evaluationDataB.FuncTech2 = 3;
+            evaluationDataB.FuncTech3 = 6;
+            evaluationDataB.Front1 = 5;
+            evaluationDataB.Front2 = 6;
+            evaluationDataB.Back1 = 3;
+            evaluationDataB.Back2 = 4;
+            evaluationDataB.Archit = 3;
+            evaluationDataB.Qa1 = 5;
+            evaluationDataB.Qa2 = 6;
+            evaluationDataB.Qa3 = 4;
+            evaluationDataB.EvaluatorId = 6;
+            evaluationDataB.EvaluateeId = 5;
+            evaluationDataB.EvaluationId = 4;
 
-            var DataC = new EvaluationData();
-            DataC.Id = 0;
-            DataC.ProjectM = 1;
-            DataC.FuncTech1 = 4;
-            DataC.FuncTech2 = 3;
-            DataC.FuncTech3 = 5;
-            DataC.Front1 = 5;
-            DataC.Front2 = 6;
-            DataC.Back1 = 5;
-            DataC.Back2 = 0;
-            DataC.Archit = 4;
-            DataC.Qa1 = 5;
-            DataC.Qa2 = 6;
-            DataC.Qa3 = 4;
-            DataC.EvaluatorId = 6;
-            DataC.EvaluateeId = 5;
-            DataC.EvaluationId = 5;
+            var evaluationDataC = new EvaluationData();
+            evaluationDataC.Id = 0;
+            evaluationDataC.ProjectM = 1;
+            evaluationDataC.FuncTech1 = 4;
+            evaluationDataC.FuncTech2 = 3;
+            evaluationDataC.FuncTech3 = 5;
+            evaluationDataC.Front1 = 5;
+            evaluationDataC.Front2 = 6;
+            evaluationDataC.Back1 = 5;
+            evaluationDataC.Back2 = 0;
+            evaluationDataC.Archit = 4;
+            evaluationDataC.Qa1 = 5;
+            evaluationDataC.Qa2 = 6;
+            evaluationDataC.Qa3 = 4;
+            evaluationDataC.EvaluatorId = 6;
+            evaluationDataC.EvaluateeId = 5;
+            evaluationDataC.EvaluationId = 5;
 
 
             //Act
-            var isValidA = EvaluationDataService.ValidateEvaluetionData(DataA);
-            var isValidB = EvaluationDataService.ValidateEvaluetionData(DataB);
-            var isValidC = EvaluationDataService.ValidateInsertEvaluationData(DataC);
+            var isValidA = EvaluationDataService.ValidateEvaluetionData(evaluationDataA);
+            var isValidB = EvaluationDataService.ValidateEvaluetionData(evaluationDataB);
+            var isValidC = EvaluationDataService.ValidateInsertEvaluationData(evaluationDataC);
 
 
             //Assert

@@ -29,104 +29,104 @@ namespace coderview_API.Service
         }
 
         // Creamos una nueva clase y Validamos elementos de la clase EvaluationData 
-        public int SubmitEvaluationData(EvaluationData data)
+        public int SubmitEvaluationData(EvaluationData evaluationData)
         {
-                      
-            if (!ValidateEvaluetionData(data))
+            
+            if (!ValidateEvaluetionData(evaluationData))
             {
                 throw new InvalidDataException();
             }
            
-            if (!ValidateInsertEvaluationData(data))
+            if (!ValidateInsertEvaluationData(evaluationData))
             {
                 throw new InvalidOperationException();
             }
-            return _evaluationDataLogic.SubmitEvaluation(data);
+            return _evaluationDataLogic.SubmitEvaluation(evaluationData);
 
         }
 
         // Creamos una nueva clase y Validamos elementos de la clase EvaluationData 
-        public static bool ValidateEvaluetionData( EvaluationData data)
+        public static bool ValidateEvaluetionData( EvaluationData evaluationData)
         {
 
-            if (data == null)
+            if (evaluationData == null)
             {
                 return false;
             }
-            if (data.Id < 1)
+            if (evaluationData.Id < 1)
             {
                 return false;
             } 
-            if (data.ProjectM < 1)
+            if (evaluationData.ProjectM < 1)
             {
                 return false;
             }
-            if (data.FuncTech1 < 1)
+            if (evaluationData.FuncTech1 < 1)
             {
                 return false;
             }
-            if (data.FuncTech2 < 1)
+            if (evaluationData.FuncTech2 < 1)
             {
                 return false;
             }
-            if (data.FuncTech3 < 1)
+            if (evaluationData.FuncTech3 < 1)
             {
                 return false;
             }
-            if (data.Front1 <1)
+            if (evaluationData.Front1 <1)
             {
                 return false;
             }
-            if (data.Front2 < 1)
+            if (evaluationData.Front2 < 1)
             {
                 return false;
             }
-            if (data.Back1 < 1)
+            if (evaluationData.Back1 < 1)
             {
                 return false;
             }
-            if (data.Back2 < 1)
+            if (evaluationData.Back2 < 1)
             {
                 return false;
             }
-            if (data.Archit < 1)
+            if (evaluationData.Archit < 1)
             {
                 return false;
             }
-            if (data.Qa1 < 1)
+            if (evaluationData.Qa1 < 1)
             {
                 return false;
             }
-            if (data.Qa2 < 1)
+            if (evaluationData.Qa2 < 1)
             {
                 return false;
             }
-            if (data.Qa3 < 1)
+            if (evaluationData.Qa3 < 1)
             {
                 return false;
             }
-            if (data.EvaluatorId < 1)
+            if (evaluationData.EvaluatorId < 1)
             {
                 return false;
             }
-            if (data.EvaluateeId < 1)
+            if (evaluationData.EvaluateeId < 1)
             {
                 return false;
             }
-            if (data.EvaluationId < 1)
+            if (evaluationData.EvaluationId < 1)
             {
                 return false;
             }
 
             return true;
         }
-        public static bool ValidateInsertEvaluationData(EvaluationData data)
+        public static bool ValidateInsertEvaluationData(EvaluationData evaluationDatadata)
         {
-            if (!ValidateEvaluetionData(data))
+            if (!ValidateEvaluetionData(evaluationDatadata))
             {
                 return false;
             }
-            if (data.Id < 1)
+            if (evaluationDatadata.Id < 1)
             {
                 return false;
             }
