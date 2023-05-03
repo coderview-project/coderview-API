@@ -26,33 +26,17 @@ namespace coderview_API.Service
 
         public int AddBootcamp(BootcampItem bootcamp)
         {
+            if(!ValidateBootcamp(bootcamp))
+            {
+                throw new InvalidOperationException();
+            }
             return _bootcampLogic.AddBootcamp(bootcamp);
         }
 
         public void UpdateBootcamp(BootcampItem bootcamp)
         {
             _bootcampLogic.UpdateBootcamp(bootcamp);
-        }
-
-        // Creamos una nueva clase y Validamos elementos de la clase  BootcampItem
-        public int AddUBootcamp(BootcampItem bootcampItem)
-        {
-            //var bootcamp = bootcampItem.Tobootcamp;
-
-            if (!ValidateBootcamp(bootcampItem))
-            {
-                throw new InvalidDataException("Vaya! El nombre del bootcamp no es valido");
-            }
-            _bootcampLogic.AddBootcamp(bootcampItem);
-            if (!ValidateInsertedBootcamp(bootcampItem))
-            {
-                throw new InvalidOperationException("Vaya! El bootcamp no ha sido registrado correctamente.");
-            }
-            return bootcampItem.Id;
-
-        }      
-
-        // Creamos una nueva clase y Validamos elementos de la clase BootcampItem
+        } 
         public static bool ValidateBootcamp(BootcampItem bootcampItem)
         {
 
@@ -76,17 +60,6 @@ namespace coderview_API.Service
 
             return true;
         }
-        public static bool ValidateInsertedBootcamp(BootcampItem bootcampItem)
-        {
-            if (!ValidateBootcamp(bootcampItem))
-            {
-                return false;
-            }
-            if (bootcampItem.Id < 1)
-            {
-                return false;
-            }
-            return true;
-        }
+       
     }
 }

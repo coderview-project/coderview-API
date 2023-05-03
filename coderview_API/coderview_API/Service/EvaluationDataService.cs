@@ -12,51 +12,35 @@ namespace coderview_API.Service
         public EvaluationDataService(IEvaluationDataLogic evaluationDataLogic)
         {
             _evaluationDataLogic = evaluationDataLogic;
-        }
-        public int SubmitEvaluation(EvaluationData data)
-        {
-            return _evaluationDataLogic.SubmitEvaluation(data);
-        }
-
+        } 
         public List<EvaluationData> GetEvaluationData()
         {
             return _evaluationDataLogic.GetEvaluationData();
         }
-
         public List<EvaluationData> GetSelectedEvaluationData(int id)
         {
             return _evaluationDataLogic.GetSelectedEvaluationData(id);
         }
-
-        // Creamos una nueva clase y Validamos elementos de la clase EvaluationData 
-        public int SubmitEvaluationData(EvaluationData evaluationData)
-        {
-            
-            if (!ValidateEvaluetionData(evaluationData))
+        public int SubmitEvaluation(EvaluationData data)
+        {           
+            if (ValidateEvaluetionData(data))
             {
-                throw new InvalidDataException();
+                return _evaluationDataLogic.SubmitEvaluation(data);
             }
-           
-            if (!ValidateInsertEvaluationData(evaluationData))
+            else
             {
                 throw new InvalidOperationException();
             }
-            return _evaluationDataLogic.SubmitEvaluation(evaluationData);
-
         }
 
-        // Creamos una nueva clase y Validamos elementos de la clase EvaluationData 
         public static bool ValidateEvaluetionData( EvaluationData evaluationData)
         {
 
             if (evaluationData == null)
             {
                 return false;
-            }
-            if (evaluationData.Id < 1)
-            {
-                return false;
-            } 
+            }           
+          
             if (evaluationData.ProjectM < 1)
             {
                 return false;
@@ -117,20 +101,7 @@ namespace coderview_API.Service
             {
                 return false;
             }
-
             return true;
-        }
-        public static bool ValidateInsertEvaluationData(EvaluationData evaluationDatadata)
-        {
-            if (!ValidateEvaluetionData(evaluationDatadata))
-            {
-                return false;
-            }
-            if (evaluationDatadata.Id < 1)
-            {
-                return false;
-            }
-            return true;
-        }
+        }               
     }
 }

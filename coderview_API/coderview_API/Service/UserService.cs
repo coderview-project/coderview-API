@@ -26,14 +26,7 @@ namespace coderview_API.Service
         public List<UserItem> GetUserById(int id)
         {
             return _userLogic.GetUserById(id);
-        }
-
-        public int AddUser(NewUserRequestModel newUserRequest)
-        {
-            var newUserItem = newUserRequest.ToUserItem();
-            newUserItem.EncryptedPassword = _userSecurityLogic.HashString(newUserRequest.Password);
-            return _userLogic.AddUser(newUserItem);
-        }
+        }    
 
         public int AddInstructor(NewInstructorRequestModel newInstructorRequest)
         {
@@ -51,25 +44,21 @@ namespace coderview_API.Service
             _userLogic.DeactivateUser(id);
         }
 
-        // Creamos una nueva clase y Validamos elementos de la clase UserItem
-        public int AddUserFromRequestModel(NewUserRequestModel requestModel)
+        public int AddUser(NewUserRequestModel newUserRequest)
         {
-            var newUserItem = requestModel.ToUserItem();
-           
+            var newUserItem = newUserRequest.ToUserItem();
+            newUserItem.EncryptedPassword = _userSecurityLogic.HashString(newUserRequest.Password);
             if (!ValidateUser(newUserItem))
             {
-                throw new InvalidDataException();
+                throw new InvalidOperationException();
             }
-            _userLogic.AddUser(newUserItem);
             if (!ValidateInsertedUser(newUserItem))
             {
                 throw new InvalidOperationException();
             }
-            return newUserItem.Id;
-
-        }
-
-        // Creamos una nueva clase y Validamos elementos de la clase UserItem
+            return _userLogic.AddUser(newUserItem);
+        } 
+      
         public static bool ValidateUser(UserItem userItem)
         {
 

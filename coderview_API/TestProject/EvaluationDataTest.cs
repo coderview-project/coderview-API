@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace TestProject
 {
     [TestClass]
-    internal class EvaluationDataTest
+    public class EvaluationDataTest
     {               
         [TestMethod]
         public void ValidateEvaluationDataTest()
@@ -53,15 +53,15 @@ namespace TestProject
             evaluationDataB.EvaluationId = 4;
 
             var evaluationDataC = new EvaluationData();
-            evaluationDataC.Id = 0;
-            evaluationDataC.ProjectM = 1;
+            evaluationDataC.Id = 5;
+            evaluationDataC.ProjectM = 0;
             evaluationDataC.FuncTech1 = 4;
             evaluationDataC.FuncTech2 = 3;
             evaluationDataC.FuncTech3 = 5;
             evaluationDataC.Front1 = 5;
             evaluationDataC.Front2 = 6;
             evaluationDataC.Back1 = 5;
-            evaluationDataC.Back2 = 0;
+            evaluationDataC.Back2 = 5;
             evaluationDataC.Archit = 4;
             evaluationDataC.Qa1 = 5;
             evaluationDataC.Qa2 = 6;
@@ -74,7 +74,7 @@ namespace TestProject
             //Act
             var isValidA = EvaluationDataService.ValidateEvaluetionData(evaluationDataA);
             var isValidB = EvaluationDataService.ValidateEvaluetionData(evaluationDataB);
-            var isValidC = EvaluationDataService.ValidateInsertEvaluationData(evaluationDataC);
+            var isValidC = EvaluationDataService.ValidateEvaluetionData(evaluationDataC);
 
 
             //Assert

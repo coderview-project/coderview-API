@@ -21,45 +21,31 @@ namespace coderview_API.Service
         {
             return _contentLogic.GetAllContent();
         }
-
-        public int AddContente(ContentItem contentItem)
-        {
-           return _contentLogic.AddContent(contentItem);
-            
-        }
-
         public void UpdateContent(ContentItem contentItem)
         {
             _contentLogic.UpdateContent(contentItem);
-           
+         
         }
-
         public void DeactivateContent(int id)
         {
             _contentLogic.DeactivateContent(id);
-        }
-
-        // Creamos una nueva clase y Validamos elementos de la clase ContentItem
+        }       
         public int AddContent(ContentItem contentItem)
-        {
-            //var content = contentItem.Tobcontent);
-
+        {   
             if (!ValidateContent(contentItem))
             {
-                throw new InvalidDataException();
+                return _contentLogic.AddContent(contentItem);
+               
             }
-            _contentLogic.AddContent(contentItem);
-            if (!ValidateInsertedContent(contentItem))
+            else                        
             {
                 throw new InvalidOperationException();
-            }
+            }            
 
-            return contentItem.Id;
-        }
-        // Creamos una nueva clase y Validamos elementos de la clase ContentItem
+        }        
 
         public static bool ValidateContent(ContentItem contentItem)
-            {
+        {
 
                 if (contentItem == null)
                 {
@@ -69,26 +55,13 @@ namespace coderview_API.Service
                 {
                     return false;
                 }
-                if (contentItem.SkillId == null /*|| contentItem.SkillId == ""*/)
+                if (contentItem.SkillId ==  null)
                 {
                     return false;
-                }
-                             
+                }                             
                 return true;
-            }
-            public static bool ValidateInsertedContent(ContentItem contentItem)
-            {
-                if (!ValidateContent(contentItem))
-                {
-                    return false;
-                }
-                if (contentItem.Id < 1)
-                {
-                    return false;
-                }
-                return true;
-            }
-
+        }
+        
     }
 }
            
